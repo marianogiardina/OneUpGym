@@ -1,6 +1,6 @@
 # OneUpGym
 
-OneUpGym is a web application designed to help users manage their fitness routines, track progress, and achieve their health goals.
+OneUpGym is a web application designed to help users manage their fitness routines, track progress, and achieve their health goals. Modificado desde juan
 
 ## Features
 
