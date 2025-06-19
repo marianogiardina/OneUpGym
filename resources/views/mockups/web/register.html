@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse - OneUp GYM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gym-primary': '#0c3c44',
+                        'gym-secondary': '#19657c',
+                        'gym-accent': '#fdb03e',
+                        'gym-accent-dark': '#d38620',
+                        'gym-bg': '#fff6e7'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gym-bg min-h-screen">
+    
+    <header class="fixed top-0 left-0 w-full bg-gym-primary text-white shadow-lg z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <span class="text-xl font-bold text-gym-accent">OneUp</span>
+                        <span class="ml-1 text-xl font-bold">GYM</span>
+                    </a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="#" class="text-sm font-medium hover:text-gym-accent transition-colors">Inicio</a>
+                    <a href="#" class="text-sm font-medium hover:text-gym-accent transition-colors">Clases</a>
+                    <a href="#" class="text-sm font-medium hover:text-gym-accent transition-colors">Calendario</a>
+                    <a href="#" class="text-gym-accent text-sm font-medium hover:text-white transition-colors">
+                        Iniciar Sesión
+                    </a>
+                </nav>
+                
+                <button class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    
+    <main class="mt-20 flex items-center justify-center min-h-screen py-8 px-4 sm:py-12 sm:px-6 lg:px-8">
+        <div class="w-full max-w-md sm:max-w-lg lg:max-w-xl">
+            
+            <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                
+                <div class="px-6 py-8 sm:px-8">
+                    <div class="text-center">
+                        
+                        <div class="mx-auto w-16 h-16 bg-gym-accent rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-gym-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+                            </svg>
+                        </div>
+                        
+                        <h2 class="text-2xl sm:text-3xl font-bold text-gym-primary mb-2">
+                            Crear Cuenta
+                        </h2>
+                        <p class="text-gray-600 text-sm sm:text-base">
+                            Únete a OneUp GYM y comienza tu transformación
+                        </p>
+                    </div>
+                </div>
+
+                
+                <div class="px-6 pb-8 sm:px-8">
+                    <form class="space-y-6" id="registerForm">
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Nombre
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="firstName" 
+                                    name="firstName" 
+                                    required
+                                    class="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gym-secondary focus:border-gym-secondary text-sm sm:text-base"
+                                    placeholder="Nombre"
+                                >
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Apellido
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="lastName" 
+                                    name="lastName" 
+                                    required
+                                    class="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gym-secondary focus:border-gym-secondary text-sm sm:text-base"
+                                    placeholder="Apellido"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Contraseña
+                                </label>
+                                <input 
+                                    type="password" 
+                                    id="password" 
+                                    name="password" 
+                                    required
+                                    minlength="8"
+                                    class="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gym-secondary focus:border-gym-secondary text-sm sm:text-base"
+                                    placeholder="••••••••"
+                                >
+                            </div>
+                            <div>
+                                <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Confirmar Contraseña
+                                </label>
+                                <input 
+                                    type="password" 
+                                    id="confirmPassword" 
+                                    name="confirmPassword" 
+                                    required
+                                    minlength="8"
+                                    class="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gym-secondary focus:border-gym-secondary text-sm sm:text-base"
+                                    placeholder="••••••••"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <div class="relative">
+                                <div class="absolute inset-0 flex items-center">
+                                    <div class="w-full border-t border-gray-300"></div>
+                                </div>
+                                <div class="relative flex justify-center text-sm">
+                                    <span class="px-2 bg-white text-gray-500">Ingresa tus datos</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                                Correo Electrónico
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required
+                                class="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gym-secondary focus:border-gym-secondary text-sm sm:text-base"
+                                placeholder="tu@email.com"
+                            >
+                            <p class="mt-1 text-xs text-gray-500">Usaremos este email para enviarte información importante</p>
+                        </div>
+
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
+                                Teléfono
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                required
+                                class="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gym-secondary focus:border-gym-secondary text-sm sm:text-base"
+                                placeholder="+54 9 11 1234-5678"
+                            >
+                        </div>
+
+                        
+                        <div>
+                            <label for="birthDate" class="block text-sm font-medium text-gray-700 mb-2">
+                                Fecha de Nacimiento
+                            </label>
+                            <input 
+                                type="date" 
+                                id="birthDate" 
+                                name="birthDate" 
+                                required
+                                class="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gym-secondary focus:border-gym-secondary text-sm sm:text-base"
+                            >
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="weight" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Peso
+                                </label>
+                                <input 
+                                    type="number"
+                                    min="0" 
+                                    id="weight" 
+                                    name="weight" 
+                                    required
+                                    class="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gym-secondary focus:border-gym-secondary text-sm sm:text-base"
+                                    placeholder="Ingresa tu peso en kg"
+                                >
+                            </div>
+                            <div>
+                                <label for="height" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Altura
+                                </label>
+                                <input 
+                                    type="number"
+                                    min="100" 
+                                    id="height" 
+                                    name="height" 
+                                    required
+                                    class="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gym-secondary focus:border-gym-secondary text-sm sm:text-base"
+                                    placeholder="Ingresa tu altura en cm"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <input 
+                                    id="terms" 
+                                    name="terms" 
+                                    type="checkbox" 
+                                    required
+                                    class="h-4 w-4 text-gym-secondary focus:ring-gym-secondary border-gray-300 rounded mt-1"
+                                >
+                                <label for="terms" class="ml-2 block text-sm text-gray-700">
+                                    Acepto los 
+                                    <a href="#" class="text-gym-secondary hover:text-gym-primary font-medium">Términos y Condiciones</a> 
+                                    y la 
+                                    <a href="#" class="text-gym-secondary hover:text-gym-primary font-medium">Política de Privacidad</a>
+                                </label>
+                            </div>
+
+                            <div class="flex items-start">
+                                <input 
+                                    id="newsletter" 
+                                    name="newsletter" 
+                                    type="checkbox" 
+                                    class="h-4 w-4 text-gym-secondary focus:ring-gym-secondary border-gray-300 rounded mt-1"
+                                >
+                                <label for="newsletter" class="ml-2 block text-sm text-gray-700">
+                                    Quiero recibir noticias, ofertas especiales y consejos de fitness por email
+                                </label>
+                            </div>
+                        </div>
+
+                       
+                        <button 
+                            type="submit"
+                            class="w-full bg-gym-accent text-gym-primary py-3 px-4 rounded-md font-medium text-sm sm:text-base hover:bg-gym-accent-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gym-accent transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                            id="submitBtn"
+                        >
+                            Crear Mi Cuenta
+                        </button>
+                    </form>
+                    
+                    <div class="mt-6 text-center">
+                        <p class="text-sm text-gray-600">
+                            ¿Ya tienes una cuenta?
+                            <a href="#" class="font-medium text-gym-secondary hover:text-gym-primary transition-colors">
+                                Inicia sesión aquí
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="mt-8 bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-lg font-semibold text-gym-primary mb-4 text-center">
+                    ¿Por qué unirte a OneUp GYM?
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 bg-gym-accent rounded-full flex items-center justify-center mb-2">
+                            <svg class="w-6 h-6 text-gym-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-medium text-gym-primary">Equipos Modernos</h4>
+                        <p class="text-xs text-gray-600">Tecnología de última generación</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 bg-gym-accent rounded-full flex items-center justify-center mb-2">
+                            <svg class="w-6 h-6 text-gym-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-medium text-gym-primary">Entrenadores Expertos</h4>
+                        <p class="text-xs text-gray-600">Profesionales certificados</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 bg-gym-accent rounded-full flex items-center justify-center mb-2">
+                            <svg class="w-6 h-6 text-gym-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-medium text-gym-primary">Horarios Flexibles</h4>
+                        <p class="text-xs text-gray-600">Abierto 7 días a la semana</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+    <footer class="bg-gym-primary text-white py-6 mt-auto">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex flex-col sm:flex-row justify-between items-center">
+                <div class="mb-4 sm:mb-0">
+                    <span class="text-gym-accent font-bold">OneUp</span>
+                    <span class="font-bold">GYM</span>
+                </div>
+                <div class="flex space-x-6 text-sm">
+                    <a href="#" class="hover:text-gym-accent transition-colors">Contacto</a>
+                    <a href="#" class="hover:text-gym-accent transition-colors">Informacion</a>
+                    <a href="#" class="hover:text-gym-accent transition-colors">Términos</a>
+                </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gym-secondary text-xs text-gray-300">
+                <p>© 2025 OneUp GYM. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

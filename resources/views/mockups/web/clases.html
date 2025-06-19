@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestras Clases - OneUp GYM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gym-primary': '#0c3c44',
+                        'gym-secondary': '#19657c',
+                        'gym-accent': '#fdb03e',
+                        'gym-accent-dark': '#d38620',
+                        'gym-bg': '#fff6e7',
+                        'gym-light-blue': '#97bdc8',
+                        'gym-gold': '#dcae3e',
+                        'gym-brown': '#56221c',
+                        'gym-dark': '#272626'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gym-bg min-h-screen">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-gym-primary text-white shadow-lg z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <span class="text-xl font-bold text-gym-accent">OneUp</span>
+                        <span class="ml-1 text-xl font-bold">GYM</span>
+                    </a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-sm font-medium hover:text-gym-accent transition-colors">Inicio</a>
+                    <a href="clases.html" class="text-gym-accent text-sm font-medium">Clases</a>
+                    <a href="calendar.html"
+                        class="text-sm font-medium hover:text-gym-accent transition-colors">Calendario</a>
+                    <a href="contact.html"
+                        class="text-sm font-medium hover:text-gym-accent transition-colors">Contacto</a>
+                    <a href="register.html" class="text-sm font-medium hover:text-gym-accent transition-colors">
+                        Registrarse
+                    </a>
+                </nav>
+
+
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seccion descripcion -->
+        <section class="bg-gradient-to-br from-gym-primary via-gym-secondary to-gym-primary py-16">
+            <div class="container mx-auto px-6 lg:px-12 text-center mt-10">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Nuestras Clases
+                </h1>
+                <p class="text-white text-lg md:text-xl opacity-90 max-w-3xl mx-auto">
+                    Descubre la variedad de disciplinas que ofrecemos. Cada clase está diseñada para ayudarte a alcanzar
+                    tus objetivos de fitness de manera divertida y efectiva.
+                </p>
+            </div>
+        </section>
+
+        <!-- Seccion de clases -->
+        <section class="py-16">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                    <!-- Natación -->
+                    <div
+                        class="bg-white rounded-lg shadow-xl overflow-hidden group hover:shadow-2xl transition-shadow duration-300">
+                        <div
+                            class="relative h-64 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                            <img src="./imgs/natacion.jpg" alt="Natación" class="w-full h-full object-cover">
+
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-2xl font-bold text-gym-primary">Natación</h3>
+                                <div class="flex items-center space-x-2">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Todos los
+                                        niveles</span>
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded-full">60 min</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                Sumérgete en nuestra piscina olímpica y mejora tu técnica de nado. Nuestras clases
+                                incluyen entrenamiento de resistencia, técnica de brazada y ejercicios de respiración.
+                                Ideal para quemar calorías y fortalecer todo el cuerpo.
+                            </p>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Ejercicio cardiovascular completo</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Bajo impacto en articulaciones</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Fortalece músculos de todo el cuerpo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KickBoxing -->
+                    <div
+                        class="bg-white rounded-lg shadow-xl overflow-hidden group hover:shadow-2xl transition-shadow duration-300">
+                        <div
+                            class="relative h-64 bg-gradient-to-br from-pink-400 to-red-500 flex items-center justify-center">
+                            <img src="./imgs/kickboxing.jpg" alt="KickBoxing" class="w-full h-full object-cover">
+
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-2xl font-bold text-gym-primary">KickBoxing</h3>
+                                <div class="flex items-center space-x-2">
+                                    <span
+                                        class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Intermedio</span>
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded-full">45 min</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                Combina técnicas de boxeo y artes marciales en una clase de alta intensidad. Mejora tu
+                                coordinación, fuerza y resistencia mientras aprendes movimientos de defensa personal.
+                                Perfecto para liberar estrés y tonificar el cuerpo.
+                            </p>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Quema hasta 600 calorías por sesión</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Mejora coordinación y reflejos</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Excelente para liberar estrés</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Yoga -->
+                    <div
+                        class="bg-white rounded-lg shadow-xl overflow-hidden group hover:shadow-2xl transition-shadow duration-300">
+                        <div
+                            class="relative h-64 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                            <img src="./imgs/yoga.jpg" alt="Yoga"
+                                class="w-full h-full object-cover">
+
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-2xl font-bold text-gym-primary">Yoga</h3>
+                                <div class="flex items-center space-x-2">
+                                    <span
+                                        class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">Principiante</span>
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded-full">60 min</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                Encuentra el equilibrio perfecto entre cuerpo y mente. Nuestras clases de yoga incluyen
+                                posturas (asanas), técnicas de respiración (pranayama) y meditación. Ideal para mejorar
+                                flexibilidad, reducir estrés y encontrar paz interior.
+                            </p>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Aumenta flexibilidad y equilibrio</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Reduce estrés y ansiedad</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Mejora la calidad del sueño</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Boxeo -->
+                    <div
+                        class="bg-white rounded-lg shadow-xl overflow-hidden group hover:shadow-2xl transition-shadow duration-300">
+                        <div
+                            class="relative h-64 bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center">
+                            <img src="./imgs/boxeo.jpg" alt="Boxeo"
+                                class="w-full h-full object-cover">
+
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-2xl font-bold text-gym-primary">Boxeo</h3>
+                                <div class="flex items-center space-x-2">
+                                    <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Todos los
+                                        niveles</span>
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded-full">50 min</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                Aprende las técnicas fundamentales del boxeo en un ambiente seguro y controlado.
+                                Trabajamos en sacos de boxeo, técnica de golpeo, movimiento de pies y acondicionamiento
+                                físico. Excelente para desarrollar fuerza y confianza.
+                            </p>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Desarrolla fuerza y potencia</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Mejora coordinación mano-ojo</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Aumenta la confianza personal</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CrossFit -->
+                    <div
+                        class="bg-white rounded-lg shadow-xl overflow-hidden group hover:shadow-2xl transition-shadow duration-300">
+                        <div
+                            class="relative h-64 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
+                            <img src="./imgs/crossfit.jpg" alt="CrossFit"
+                                class="w-full h-full object-cover">
+
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-2xl font-bold text-gym-primary">CrossFit</h3>
+                                <div class="flex items-center space-x-2">
+                                    <span
+                                        class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full">Avanzado</span>
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded-full">45 min</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                Entrenamiento funcional de alta intensidad que combina levantamiento de pesas,
+                                ejercicios cardiovasculares y movimientos gimnásticos. Cada día es diferente con WODs
+                                (Workout of the Day) diseñados para desafiar todos los aspectos del fitness.
+                            </p>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Mejora fuerza, resistencia y agilidad</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Entrenamientos variados y desafiantes</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Comunidad motivadora y competitiva</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pilates -->
+                    <div
+                        class="bg-white rounded-lg shadow-xl overflow-hidden group hover:shadow-2xl transition-shadow duration-300">
+                        <div
+                            class="relative h-64 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                            <img src="./imgs/pilates.jpg" alt="Pilates"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-2xl font-bold text-gym-primary">Pilates</h3>
+                                <div class="flex items-center space-x-2">
+                                    <span
+                                        class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Intermedio</span>
+                                    <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded-full">55 min</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                Fortalece tu core y mejora tu postura con ejercicios controlados y precisos. El Pilates
+                                se enfoca en el fortalecimiento del centro del cuerpo, la flexibilidad y la conciencia
+                                corporal. Ideal para rehabilitación y prevención de lesiones.
+                            </p>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Fortalece el core profundamente</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Mejora postura y alineación</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-sm text-gray-700">Ideal para rehabilitación</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seccion de botones -->
+        <section class="py-16 bg-gradient-to-br from-gym-primary via-gym-secondary to-gym-primary">
+            <div class="container mx-auto px-6 lg:px-12 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    ¿Listo para comenzar?
+                </h2>
+                <p class="text-white text-lg opacity-90 mb-8 max-w-2xl mx-auto">
+                    Únete a OneUp GYM y descubre cuál es la clase perfecta para ti. Nuestros instructores certificados
+                    te guiarán en cada paso de tu transformación.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="calendar.html"
+                        class="bg-gym-accent hover:bg-gym-accent-dark text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl">
+                        Ver Horarios
+                    </a>
+                    <a href="contact.html"
+                        class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-gym-primary font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+                        Contactar
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gym-primary text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex flex-col sm:flex-row justify-between items-center">
+                <div class="mb-4 sm:mb-0">
+                    <span class="text-gym-accent font-bold">OneUp</span>
+                    <span class="font-bold">GYM</span>
+                </div>
+                <div class="flex space-x-6 text-sm">
+                    <a href="index.html" class="hover:text-gym-accent transition-colors">Inicio</a>
+                    <a href="contact.html" class="hover:text-gym-accent transition-colors">Contacto</a>
+                </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gym-secondary text-xs text-gray-300">
+                <p>© 2025 OneUp GYM. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

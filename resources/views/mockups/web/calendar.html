@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Clases - OneUp GYM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gym-primary': '#0c3c44',
+                        'gym-secondary': '#19657c',
+                        'gym-accent': '#fdb03e',
+                        'gym-accent-dark': '#d38620',
+                        'gym-bg': '#fff6e7',
+                        'gym-light-blue': '#97bdc8',
+                        'gym-gold': '#dcae3e',
+                        'gym-brown': '#56221c',
+                        'gym-dark': '#272626'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gym-bg min-h-screen">
+    
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-gym-primary text-white shadow-lg z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <span class="text-xl font-bold text-gym-accent">OneUp</span>
+                        <span class="ml-1 text-xl font-bold">GYM</span>
+                    </a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-sm font-medium hover:text-gym-accent transition-colors">Inicio</a>
+                    <a href="clases.html" class="text-sm font-medium">Clases</a>
+                    <a href="calendario.html" class="text-gym-accent text-sm font-medium hover:text-gym-accent transition-colors">Calendario</a>
+                    <a href="contact.html" class="text-sm font-medium hover:text-gym-accent transition-colors">Contacto</a>
+                    <a href="register.html" class="text-sm font-medium hover:text-gym-accent transition-colors">
+                        Registrarse
+                    </a>
+                </nav>
+                
+                <button class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Seccion de calendario -->
+        <section class="py-8 bg-white">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+                    <div>
+                        <h1 class="text-3xl font-bold text-gym-primary mb-2">Calendario de Clases</h1>
+                        <p class="text-gray-600">Consulta nuestras clases disponibles y reserva tu lugar</p>
+                    </div>
+                    <div class="mt-4 md:mt-0">
+                        <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gym-accent focus:border-gym-accent">
+                            <option>Todas las clases</option>
+                            <option>Natación</option>
+                            <option>KickBoxing</option>
+                            <option>Yoga</option>
+                            <option>Boxeo</option>
+                            <option>CrossFit</option>
+                            <option>Pilates</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="bg-gray-50 rounded-lg p-6 mb-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-gym-primary mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                            </svg>
+                            <h2 class="text-xl font-bold text-gym-primary">Viernes, 25 De Abril De 2025</h2>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="px-4 py-2 border border-gym-primary text-gym-primary rounded-lg hover:bg-gym-primary hover:text-white transition-colors">
+                                Anterior
+                            </button>
+                            <button class="px-4 py-2 bg-gym-accent text-white rounded-lg hover:bg-gym-accent-dark transition-colors">
+                                Hoy
+                            </button>
+                            <button class="px-4 py-2 border border-gym-primary text-gym-primary rounded-lg hover:bg-gym-primary hover:text-white transition-colors">
+                                Siguiente
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">Horarios y disponibilidad de clases para el día seleccionado</p>
+                </div>
+
+                <!-- Lista de clases -->
+                <div class="space-y-4 mb-12">
+
+                    <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                            <div class="flex-1">
+                                <div class="flex items-center mb-2">
+                                    <span class="text-2xl font-bold text-gym-primary mr-4">13:00</span>
+                                    <div>
+                                        <div class="flex items-center">
+                                            <h3 class="text-lg font-semibold text-gym-primary mr-2">Natación</h3>
+                                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Natación</span>
+                                        </div>
+                                        <p class="text-gray-600 text-sm">60 min • Instructor: María García</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                                <div class="text-right">
+                                    <p class="text-sm text-gray-600">10/10 lugares</p>
+                                    <div class="w-24 bg-gray-200 rounded-full h-2 mt-1">
+                                        <div class="bg-gym-primary h-2 rounded-full" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                <button class="bg-gray-400 text-white px-4 py-2 rounded-lg cursor-not-allowed" disabled>
+                                    Clase Llena
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                            <div class="flex-1">
+                                <div class="flex items-center mb-2">
+                                    <span class="text-2xl font-bold text-gym-primary mr-4">13:30</span>
+                                    <div>
+                                        <div class="flex items-center">
+                                            <h3 class="text-lg font-semibold text-gym-primary mr-2">KickBoxing</h3>
+                                            <span class="bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded-full">KickBoxing</span>
+                                        </div>
+                                        <p class="text-gray-600 text-sm">45 min • Instructor: María García</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                                <div class="text-right">
+                                    <p class="text-sm text-gray-600">13/14 lugares</p>
+                                    <div class="w-24 bg-gray-200 rounded-full h-2 mt-1">
+                                        <div class="bg-gym-primary h-2 rounded-full" style="width: 93%"></div>
+                                    </div>
+                                </div>
+                                <button class="bg-gym-accent hover:bg-gym-accent-dark text-white px-4 py-2 rounded-lg transition-colors">
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                            <div class="flex-1">
+                                <div class="flex items-center mb-2">
+                                    <span class="text-2xl font-bold text-gym-primary mr-4">16:30</span>
+                                    <div>
+                                        <div class="flex items-center">
+                                            <h3 class="text-lg font-semibold text-gym-primary mr-2">Natación</h3>
+                                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Natación</span>
+                                        </div>
+                                        <p class="text-gray-600 text-sm">60 min • Instructor: Pedro Sanchez</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                                <div class="text-right">
+                                    <p class="text-sm text-gray-600">6/18 lugares</p>
+                                    <div class="w-24 bg-gray-200 rounded-full h-2 mt-1">
+                                        <div class="bg-gym-primary h-2 rounded-full" style="width: 33%"></div>
+                                    </div>
+                                </div>
+                                <button class="bg-gym-accent hover:bg-gym-accent-dark text-white px-4 py-2 rounded-lg transition-colors">
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                            <div class="flex-1">
+                                <div class="flex items-center mb-2">
+                                    <span class="text-2xl font-bold text-gym-primary mr-4">20:00</span>
+                                    <div>
+                                        <div class="flex items-center">
+                                            <h3 class="text-lg font-semibold text-gym-primary mr-2">Yoga</h3>
+                                            <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">Yoga</span>
+                                        </div>
+                                        <p class="text-gray-600 text-sm">60 min • Instructor: Juan López</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                                <div class="text-right">
+                                    <p class="text-sm text-gray-600">5/13 lugares</p>
+                                    <div class="w-24 bg-gray-200 rounded-full h-2 mt-1">
+                                        <div class="bg-gym-primary h-2 rounded-full" style="width: 38%"></div>
+                                    </div>
+                                </div>
+                                <button class="bg-gym-accent hover:bg-gym-accent-dark text-white px-4 py-2 rounded-lg transition-colors">
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info de las clases -->
+                <div class="bg-gym-bg rounded-lg p-8">
+                    <h2 class="text-2xl font-bold text-gym-primary mb-6">Información sobre las clases</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                        <div class="flex items-start">
+                            <div class="w-4 h-4 bg-red-500 rounded-full mr-3 mt-1 flex-shrink-0"></div>
+                            <div>
+                                <h3 class="font-semibold text-gym-primary mb-1">Boxeo</h3>
+                                <p class="text-gray-600 text-sm">Técnicas de boxeo para todos los niveles.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-4 h-4 bg-orange-500 rounded-full mr-3 mt-1 flex-shrink-0"></div>
+                            <div>
+                                <h3 class="font-semibold text-gym-primary mb-1">CrossFit</h3>
+                                <p class="text-gray-600 text-sm">Entrenamiento funcional de alta intensidad.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="flex items-start">
+                            <div class="w-4 h-4 bg-blue-500 rounded-full mr-3 mt-1 flex-shrink-0"></div>
+                            <div>
+                                <h3 class="font-semibold text-gym-primary mb-1">Natación</h3>
+                                <p class="text-gray-600 text-sm">Clases en nuestra piscina olímpica.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="flex items-start">
+                            <div class="w-4 h-4 bg-green-500 rounded-full mr-3 mt-1 flex-shrink-0"></div>
+                            <div>
+                                <h3 class="font-semibold text-gym-primary mb-1">Pilates</h3>
+                                <p class="text-gray-600 text-sm">Fortalecimiento del core y flexibilidad.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="flex items-start">
+                            <div class="w-4 h-4 bg-purple-500 rounded-full mr-3 mt-1 flex-shrink-0"></div>
+                            <div>
+                                <h3 class="font-semibold text-gym-primary mb-1">Yoga</h3>
+                                <p class="text-gray-600 text-sm">Equilibrio entre cuerpo y mente.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="flex items-start">
+                            <div class="w-4 h-4 bg-pink-500 rounded-full mr-3 mt-1 flex-shrink-0"></div>
+                            <div>
+                                <h3 class="font-semibold text-gym-primary mb-1">KickBoxing</h3>
+                                <p class="text-gray-600 text-sm">Combinación de técnicas de boxeo y artes marciales.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gym-primary text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex flex-col sm:flex-row justify-between items-center">
+                <div class="mb-4 sm:mb-0">
+                    <span class="text-gym-accent font-bold">OneUp</span>
+                    <span class="font-bold">GYM</span>
+                </div>
+                <div class="flex space-x-6 text-sm">
+                    <a href="index.html" class="hover:text-gym-accent transition-colors">Inicio</a>
+                    <a href="contact.html" class="hover:text-gym-accent transition-colors">Contacto</a>
+                </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gym-secondary text-xs text-gray-300">
+                <p>© 2025 OneUp GYM. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
