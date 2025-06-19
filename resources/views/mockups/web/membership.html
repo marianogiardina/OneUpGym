@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membresías - OneUp GYM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gym-primary': '#0c3c44',
+                        'gym-secondary': '#19657c',
+                        'gym-accent': '#fdb03e',
+                        'gym-accent-dark': '#d38620',
+                        'gym-bg': '#fff6e7'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gym-bg min-h-screen">
+    <header class="fixed top-0 left-0 w-full bg-gym-primary text-white shadow-lg z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <span class="text-xl font-bold text-gym-accent">OneUp</span>
+                        <span class="ml-1 text-xl font-bold">GYM</span>
+                    </a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-sm font-medium hover:text-gym-accent transition-colors">Inicio</a>
+                    <a href="clases.html" class="text-sm font-medium hover:text-gym-accent transition-colors">Clases</a>
+                    <a href="calendar.html" class="text-sm font-medium hover:text-gym-accent transition-colors">Calendario</a>
+                    <a href="register.html" class="text-gym-accent text-sm font-medium hover:text-white transition-colors">
+                        Registrarse
+                    </a>
+                </nav>
+
+                <button class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    
+    <main>
+            
+        <section class="py-16 bg-gradient-to-br from-gym-primary via-gym-secondary to-gym-primary">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                        Planes de Membresía
+                    </h2>
+                    <p class="text-white text-lg opacity-90 max-w-2xl mx-auto">
+                        Elige el plan que mejor se adapte a tus necesidades y comienza tu transformación hoy mismo.
+                    </p>
+                </div>
+                        
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        
+                    <div class="bg-white rounded-lg shadow-xl p-8 relative transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-center mb-6">
+                            <h3 class="text-xl font-bold text-gym-primary mb-2">Membresía Mensual</h3>
+                            <div class="text-4xl font-bold text-gym-primary mb-2">$35,000</div>
+                            <p class="text-gray-600">Precio regular mensual</p>
+                            <div class="mt-2">
+                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm font-medium">
+                                    Sin descuento
+                                </span>
+                            </div>
+                        </div>
+        
+                        <div class="mb-6">
+                            <p class="text-gray-600 mb-4">Acceso completo a todas las instalaciones y clases</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Acceso ilimitado al gimnasio</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Todas las clases grupales</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Acceso a vestuarios y duchas</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Asesoramiento inicial</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">App de seguimiento</span>
+                                </li>
+                            </ul>
+                        </div>
+            
+                        <button class="w-full bg-gym-secondary hover:bg-gym-primary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
+                            Seleccionar Plan
+                        </button>
+                    </div>
+
+                        
+                    <div class="bg-white rounded-lg shadow-xl p-8 relative border-4 border-gym-accent transform hover:scale-105 transition-transform duration-300">
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                            <span class="bg-gym-accent text-white px-4 py-2 rounded-full text-sm font-semibold">
+                                Más Popular
+                            </span>
+                        </div>
+                        
+                        <div class="text-center mb-6">
+                            <h3 class="text-xl font-bold text-gym-primary mb-2">Membresía Anual</h3>
+                            <div class="mb-2">
+                                <span class="text-gray-400 line-through text-lg">$35,000</span>
+                            </div>
+                            <div class="text-4xl font-bold text-gym-primary mb-2">$25,000</div>
+                            <p class="text-gray-600">Pago mensual (anual)</p>
+                            <div class="mt-2">
+                                <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-medium">
+                                    Ahorra $120,000/año
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <p class="text-gray-600 mb-4">Acceso completo a todas las instalaciones y clases</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Acceso ilimitado al gimnasio</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Todas las clases grupales</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Acceso a vestuarios y duchas</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Asesoramiento inicial</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">App de seguimiento</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <button class="w-full bg-gym-accent hover:bg-gym-accent-dark text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
+                            Seleccionar Plan
+                        </button>
+                    </div>
+
+                        
+                    <div class="bg-white rounded-lg shadow-xl p-8 relative transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-center mb-6">
+                            <h3 class="text-xl font-bold text-gym-primary mb-2">Membresía Semestral</h3>
+                            <div class="mb-2">
+                                <span class="text-gray-400 line-through text-lg">$35,000</span>
+                            </div>
+                            <div class="text-4xl font-bold text-gym-primary mb-2">$30,000</div>
+                            <p class="text-gray-600">Pago mensual (semestral)</p>
+                            <div class="mt-2">
+                                <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">
+                                    Ahorra $30,000/semestre
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <p class="text-gray-600 mb-4">Acceso completo a todas las instalaciones y clases</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Acceso ilimitado al gimnasio</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Todas las clases grupales</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Acceso a vestuarios y duchas</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">Asesoramiento inicial</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-700">App de seguimiento</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <button class="w-full bg-gym-secondary hover:bg-gym-primary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
+                            Seleccionar Plan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gym-primary mb-4">Comparación de Ahorros</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Ve cuánto puedes ahorrar eligiendo nuestros planes de mayor duración
+                    </p>
+                </div>
+
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gym-primary text-white">
+                                    <tr>
+                                        <th class="px-6 py-4 text-left">Plan</th>
+                                        <th class="px-6 py-4 text-center">Precio Mensual</th>
+                                        <th class="px-6 py-4 text-center">Precio Original</th>
+                                        <th class="px-6 py-4 text-center">Ahorro Mensual</th>
+                                        <th class="px-6 py-4 text-center">Ahorro Anual</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200">
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium text-gym-primary">Mensual</td>
+                                        <td class="px-6 py-4 text-center font-bold">$35,000</td>
+                                        <td class="px-6 py-4 text-center text-gray-500">$35,000</td>
+                                        <td class="px-6 py-4 text-center text-gray-500">$0</td>
+                                        <td class="px-6 py-4 text-center text-gray-500">$0</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 font-medium text-gym-primary">Semestral</td>
+                                        <td class="px-6 py-4 text-center font-bold">$30,000</td>
+                                        <td class="px-6 py-4 text-center text-gray-500 line-through">$35,000</td>
+                                        <td class="px-6 py-4 text-center text-green-600 font-medium">$5,000</td>
+                                        <td class="px-6 py-4 text-center text-green-600 font-medium">$60,000</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 bg-gym-accent bg-opacity-10">
+                                        <td class="px-6 py-4 font-medium text-gym-primary">
+                                            Anual 
+                                            <span class="ml-2 bg-gym-accent text-white px-2 py-1 rounded-full text-xs">Más Popular</span>
+                                        </td>
+                                        <td class="px-6 py-4 text-center font-bold text-gym-accent">$25,000</td>
+                                        <td class="px-6 py-4 text-center text-gray-500 line-through">$35,000</td>
+                                        <td class="px-6 py-4 text-center text-green-600 font-bold">$10,000</td>
+                                        <td class="px-6 py-4 text-center text-green-600 font-bold">$120,000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="py-16 bg-gym-bg">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gym-primary mb-4">¿Por qué elegir OneUp GYM?</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Ofrecemos mucho más que un gimnasio tradicional. Descubre todos los beneficios incluidos en nuestras membresías.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gym-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gym-primary mb-2">Equipos Modernos</h3>
+                        <p class="text-gray-600 text-sm">Tecnología de última generación para maximizar tus resultados</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gym-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gym-primary mb-2">Entrenadores Expertos</h3>
+                        <p class="text-gray-600 text-sm">Profesionales certificados para guiarte en cada paso</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gym-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gym-primary mb-2">Horarios Flexibles</h3>
+                        <p class="text-gray-600 text-sm">Abierto 7 días a la semana con horarios extendidos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="py-16 bg-gradient-to-r from-gym-primary to-gym-secondary text-white">
+            <div class="container mx-auto px-6 lg:px-12 text-center">
+                <h2 class="text-3xl font-bold mb-4">¿Listo para comenzar?</h2>
+                <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+                    Únete a OneUp GYM hoy y comienza tu transformación.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gym-primary text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex flex-col sm:flex-row justify-between items-center">
+                <div class="mb-4 sm:mb-0">
+                    <span class="text-gym-accent font-bold">OneUp</span>
+                    <span class="font-bold">GYM</span>
+                </div>
+                <div class="flex space-x-6 text-sm">
+                    <a href="index.html" class="hover:text-gym-accent transition-colors">Inicio</a>
+                    <a href="contact.html" class="hover:text-gym-accent transition-colors">Contacto</a>
+
+                </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gym-secondary text-xs text-gray-300">
+                <p>© 2025 OneUp GYM. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
