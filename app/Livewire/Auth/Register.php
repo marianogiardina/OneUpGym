@@ -49,7 +49,7 @@ class Register extends Component
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        // Convertir cadenas vacías a null para campos opcionales para que lo acepte la bbdd
+        // Convertir string vacios a null en campos opcionales para que lo acepte la bbdd
         $validated['peso'] = empty($validated['peso']) ? null : $validated['peso'];
         $validated['altura'] = empty($validated['altura']) ? null : $validated['altura'];
 
