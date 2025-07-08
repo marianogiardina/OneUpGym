@@ -43,6 +43,9 @@
                             id="name"
                             :placeholder="__('Full name')"
                         />
+                        @error('name')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">
@@ -57,6 +60,9 @@
                             id="lastName"
                             :placeholder="__('Lastname')"
                         />
+                        @error('lastname')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
 
@@ -74,6 +80,9 @@
                             :placeholder="__('Password')"
                             viewable
                         />
+                        @error('password')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-2">
@@ -88,6 +97,9 @@
                             :placeholder="__('Confirm password')"
                             viewable
                         />
+                        @error('password_confirmation')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
 
@@ -114,6 +126,9 @@
                         id="email"
                         placeholder="email@example.com"
                     />
+                    @error('email')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
                     <p class="mt-1 text-xs text-gray-500">Usaremos este email para enviarte información importante</p>
                 </div>
 
@@ -130,6 +145,9 @@
                         class="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gym-secondary focus:border-gym-secondary text-sm sm:text-base"
                         placeholder="+54 9 11 1234-5678"
                     />
+                    @error('celular')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 
@@ -144,36 +162,43 @@
                         required
                         class="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gym-secondary focus:border-gym-secondary text-sm sm:text-base"
                     />
+                    @error('fecha_nacimiento')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label for="peso" class="block text-sm font-medium text-gray-700 mb-2">
-                            Peso
+                            Peso <span class="text-gray-400 text-xs">(opcional)</span>
                         </label>
                         <input 
                             wire:model="peso"
                             type="number"
                             min="0" 
                             id="peso" 
-                            required
                             class="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gym-secondary focus:border-gym-secondary text-sm sm:text-base"
                             placeholder="Ingresa tu peso en kg"
                         />
+                        @error('peso')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <label for="altura" class="block text-sm font-medium text-gray-700 mb-2">
-                            Altura
+                            Altura <span class="text-gray-400 text-xs">(opcional)</span>
                         </label>
                         <input 
                             wire:model="altura"
                             type="number"
                             min="100" 
                             id="altura" 
-                            required
                             class="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gym-secondary focus:border-gym-secondary text-sm sm:text-base"
                             placeholder="Ingresa tu altura en cm"
                         />
+                        @error('altura')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
 
