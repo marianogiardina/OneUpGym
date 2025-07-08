@@ -9,6 +9,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+//index de prueba
+Route::get('/index', function () {
+    return view('index');
+})->name('index');
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
