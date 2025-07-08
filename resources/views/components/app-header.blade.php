@@ -9,7 +9,7 @@
             </div>
             <nav class="hidden md:flex items-center space-x-6">
                 <a href="index.html" class="text-sm font-medium hover:text-gym-accent transition-colors">Inicio</a>
-                <a href="clases.html" class="text-sm font-medium hover:text-gym-accent transition-colors">Clases</a>
+                <a href="clases.html" class="text-sm font-medium hover:text-gym-accent transition-colors">Clases lalalala</a>
                 @auth
                     <a href="calendar.html" class="text-sm font-medium hover:text-gym-accent transition-colors">Calendario</a>
                 @else
