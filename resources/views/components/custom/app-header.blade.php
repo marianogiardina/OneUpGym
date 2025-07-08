@@ -30,5 +30,5 @@
                 </svg>
             </button>
         </div>
-    </nav>
+    </div>
 </header>

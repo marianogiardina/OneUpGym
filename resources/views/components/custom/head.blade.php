@@ -18,4 +18,6 @@
             }
         }
     </script>
+    
+    @livewireStyles
 </head>
