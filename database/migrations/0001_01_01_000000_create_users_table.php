@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('rol')->default(0); // 0: user, 1: profesor, 2: admin
-            $table->integer('fecha_nacimiento'); // Edad del usuario(input date)
+            $table->date('fecha_nacimiento'); // Edad del usuario(input date)
             $table->integer('altura')->nullable(); // Altura del usuario, opcional
             $table->integer('peso')->nullable(); // Peso del usuario, opcional
             $table->integer('celular')->nullable(); // Celular del usuario, opcional

@@ -16,6 +16,17 @@
             :placeholder="__('Full name')"
         />
 
+        <!-- Lastname -->
+        <flux:input
+            wire:model="lastname"
+            :label="__('Lastname')"
+            type="text"
+            required
+            autofocus
+            autocomplete="lastname"
+            :placeholder="__('Lastname')"
+        />
+
         <!-- Email Address -->
         <flux:input
             wire:model="email"
@@ -24,6 +35,16 @@
             required
             autocomplete="email"
             placeholder="email@example.com"
+        />
+        <!-- Birth Date -->
+
+        <flux:input
+            wire:model="fecha_nacimiento"
+            :label="__('Fecha de nacimiento')"
+            type="date"
+            required
+            autocomplete="birtdate"
+            placeholder="YYYY-MM-DD"
         />
 
         <!-- Password -->

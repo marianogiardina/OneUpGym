@@ -9,13 +9,19 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Date;
+
 
 #[Layout('components.layouts.auth')]
 class Register extends Component
 {
     public string $name = '';
 
+    public string $lastname = '';
+
     public string $email = '';
+
+    public string $fecha_nacimiento = '';
 
     public string $password = '';
 
@@ -28,7 +34,9 @@ class Register extends Component
     {
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'fecha_nacimiento' => ['required', 'date'],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
         ]);
 
