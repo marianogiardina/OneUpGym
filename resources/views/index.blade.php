@@ -1,4 +1,4 @@
-<x-custom.template>
+<x-custom.template title="OneUp Gym">
 
     <section class="min-h-screen bg-gradient-to-br from-gym-primary via-gym-secondary to-gym-primary flex items-center pt-20">
         <div class="container mx-auto px-6 lg:px-12">

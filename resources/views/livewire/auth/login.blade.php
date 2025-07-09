@@ -25,6 +25,9 @@
                 
                 <div class="grid grid-cols-1 sm:grid-cols-1 gap-4">
                     <div>
+                        @error('email')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
                         <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
                             Mail
                         </label>
@@ -34,7 +37,7 @@
                             required
                             autofocus
                             autocomplete="email"
-                            placeholder="email@example.com"
+                            placeholder="mail@ejemplo.com"
                         />
                     </div>
                 
@@ -76,12 +79,9 @@
                 </div>
 
                 
-                <button 
-                    type="submit"
-                    class="w-full bg-gym-accent text-gym-primary py-3 px-4 rounded-md font-medium text-sm sm:text-base hover:bg-gym-accent-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gym-accent transition-colors duration-200"
-                >
+                <x-buttons.btn-user-form>
                     Iniciar Sesión
-                </button>
+                </x-buttons.btn-user-form>
 
             </form>
 

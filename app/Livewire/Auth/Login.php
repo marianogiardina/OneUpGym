@@ -12,7 +12,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-#[Layout('components.layouts.auth')]
+#[Layout('components.layouts.auth', ['title' => 'Iniciar Sesión - OneUp Gym'])]
 class Login extends Component
 {
     #[Validate('required|string|email')]
@@ -36,7 +36,7 @@ class Login extends Component
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => __('auth.failed'),
+                'email' => 'Los datos ingresados son incorrectos.',
             ]);
         }
 
@@ -44,6 +44,18 @@ class Login extends Component
         Session::regenerate();
 
         $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     */
+    public function messages(): array
+    {
+        return [
+            'email.required' => 'El correo electrónico es obligatorio.',
+            'email.email' => 'Debe ser un correo electrónico válido.',
+            'password.required' => 'La contraseña es obligatoria.',
+        ];
     }
 
     /**

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Password;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-#[Layout('components.layouts.auth')]
+#[Layout('components.layouts.auth', ['title' => 'Recuperar Contraseña - OneUp Gym'])]
 class ForgotPassword extends Component
 {
     public string $email = '';
@@ -22,6 +22,6 @@ class ForgotPassword extends Component
 
         Password::sendResetLink($this->only('email'));
 
-        session()->flash('status', __('A reset link will be sent if the account exists.'));
+        session()->flash('status', __('Se envio un link para restablecer la contraseña si el mail es correcto, esto puede demorar unos segundos.'));
     }
 }

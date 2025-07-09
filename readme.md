@@ -21,3 +21,9 @@ Visita nuestro sitio web y descubre por qué miles de personas han elegido OneUp
 ---
 
 *OneUp GYM - Donde comienza tu transformación* 💪
+
+## Aspectos Tecnicos
+
+- Comando para ver el link para recuperar la contraseña
+
+    - Select-String -Path "storage\logs\laravel.log" -Pattern "http://127\.0\.0\.1:8000/reset-password/" | Select-Object -Last 1 | ForEach-Object { if ($_.Line -match 'http://127\.0\.0\.1:8000/reset-password/[^"]*') { $matches[0] } }

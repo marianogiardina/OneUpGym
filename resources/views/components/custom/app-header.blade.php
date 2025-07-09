@@ -10,8 +10,9 @@
             <nav class="hidden md:flex items-center space-x-6">
                 <a href="{{ route('home') }}" class="text-sm font-medium hover:text-gym-accent transition-colors">Inicio</a>
                 <a href="clases.html" class="text-sm font-medium hover:text-gym-accent transition-colors">Clases</a>
-                @auth
+                @auth 
                     <a href="calendar.html" class="text-sm font-medium hover:text-gym-accent transition-colors">Calendario</a>
+                    <a href="{{ route('settings.profile') }}" class="text-sm font-medium hover:text-gym-accent transition-colors">Mi perfil</a>
                 @else
                     <a href="{{ route('login') }}" class="text-gym-accent text-sm font-medium hover:text-white transition-colors">
                         Login

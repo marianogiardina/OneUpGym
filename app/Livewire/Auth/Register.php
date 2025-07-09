@@ -12,7 +12,7 @@ use Livewire\Component;
 use Carbon\Carbon;
 
 
-#[Layout('components.layouts.auth')]
+#[Layout('components.layouts.auth', ['title' => 'Registro - OneUp Gym'])]
 class Register extends Component
 {
     public string $name = '';

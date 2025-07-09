@@ -77,13 +77,15 @@
                             required
                             autocomplete="new-password"
                             id="password"
-                            :placeholder="__('Password')"
+                            :placeholder="__('••••••••')"
                             viewable
                         />
                         @error('password')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
+
                     </div>
+
                     <div>
                         <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-2">
                             Confirmar Contraseña
@@ -94,27 +96,34 @@
                             required
                             autocomplete="new-password"
                             id="confirmPassword"
-                            :placeholder="__('Confirm password')"
+                            :placeholder="__('••••••••')"
                             viewable
                         />
                         @error('password_confirmation')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
+
                 </div>
 
                 <div class="mt-6">
+
                     <div class="relative">
+                        
                         <div class="absolute inset-0 flex items-center">
                             <div class="w-full border-t border-gray-300"></div>
                         </div>
+
                         <div class="relative flex justify-center text-sm">
                             <span class="px-2 bg-white text-gray-500">Ingresa tus datos</span>
                         </div>
+
                     </div>
+
                 </div>
                 
                 <div>
+
                     <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
                         Correo Electrónico
                     </label>
@@ -124,16 +133,18 @@
                         required
                         autocomplete="email"
                         id="email"
-                        placeholder="email@example.com"
+                        placeholder="mail@example.com"
                     />
                     @error('email')
                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                     <p class="mt-1 text-xs text-gray-500">Usaremos este email para enviarte información importante</p>
+
                 </div>
 
                 
                 <div>
+
                     <label for="celular" class="block text-sm font-medium text-gray-700 mb-2">
                         Teléfono
                     </label>
@@ -148,10 +159,12 @@
                     @error('celular')
                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                     @enderror
+
                 </div>
 
                 
                 <div>
+
                     <label for="fecha_nacimiento" class="block text-sm font-medium text-gray-700 mb-2">
                         Fecha de Nacimiento
                     </label>
@@ -165,10 +178,13 @@
                     @error('fecha_nacimiento')
                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                     @enderror
+
                 </div>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
                     <div>
+
                         <label for="peso" class="block text-sm font-medium text-gray-700 mb-2">
                             Peso <span class="text-gray-400 text-xs">(opcional)</span>
                         </label>
@@ -183,7 +199,9 @@
                         @error('peso')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
+
                     </div>
+
                     <div>
                         <label for="altura" class="block text-sm font-medium text-gray-700 mb-2">
                             Altura <span class="text-gray-400 text-xs">(opcional)</span>
@@ -200,9 +218,11 @@
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
+
                 </div>
 
                 <div class="space-y-4">
+
                     <div class="flex items-start">
                         <input 
                             id="terms" 
@@ -227,12 +247,13 @@
                             Quiero recibir noticias, ofertas especiales y consejos de fitness por email
                         </label>
                     </div>
+
                 </div>
 
                 <div class="flex items-center justify-end">
-                    <button type="submit" variant="primary" class="w-full bg-gym-accent text-gym-primary py-3 px-4 rounded-md font-medium text-sm sm:text-base hover:bg-gym-accent-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gym-accent transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
-                        {{ __('Crear Cuenta') }}
-                    </button>
+                    <x-buttons.btn-user-form>
+                        Crear Cuenta
+                    </x-buttons.btn-user-form>
                 </div>
 
             </form>
