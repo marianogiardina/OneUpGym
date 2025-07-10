@@ -42,7 +42,7 @@
 
                 <form method="POST" action="{{ route('logout') }}" class="w-full mt-2">
                     @csrf
-                    <button type="submit" icon="arrow-right-start-on-rectangle" class="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md font-medium ">
+                    <button type="submit"  class="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md font-medium ">
                         {{ __('Cerrar sesion') }}
                     </button>
                 </form>
