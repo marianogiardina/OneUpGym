@@ -23,4 +23,12 @@ class DeleteUserForm extends Component
 
         $this->redirect('/', navigate: true);
     }
+
+    protected function messages()
+    {
+        return [
+            'password.current_password' => 'La contraseña ingresada no es correcta.',
+            'password.required' => 'Debes ingresar tu contraseña para elimnar la cuenta',
+        ];
+    }
 }
