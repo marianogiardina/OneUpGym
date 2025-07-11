@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Membresia;
+use App\Models\User;
 
 class UserController extends Controller
 {
         public function index()
     {
-        //
+         $users = User::get();
+
+         return view('dashboard.admin', compact('users'));
     }
 
     /**

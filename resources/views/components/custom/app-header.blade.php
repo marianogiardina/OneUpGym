@@ -8,25 +8,46 @@
                 </a>
             </div>
             <nav class="hidden md:flex items-center space-x-6">
-                <a href="{{ route('home') }}" class="text-sm font-medium hover:text-gym-accent transition-colors">Inicio</a>
+                <a href="{{ route('home') }}"
+                    class="text-sm font-medium hover:text-gym-accent transition-colors">Inicio</a>
                 <a href="clases.html" class="text-sm font-medium hover:text-gym-accent transition-colors">Clases</a>
                 @auth
-                    <a href="calendar.html" class="text-sm font-medium hover:text-gym-accent transition-colors">Calendario</a>
+                    <a href="calendar.html"
+                        class="text-sm font-medium hover:text-gym-accent transition-colors">Calendario</a>
+                    <form method="POST" action="{{ route('logout') }}" class="m-0 ml-20">
+                        @csrf
+                        <button type="submit"
+                            class="text-sm font-medium hover:text-gym-accent transition-colors bg-transparent border-none p-0 m-0 cursor-pointer">
+                            {{ __('Logout') }}
+                        </button>
+                    </form>
                 @else
-                    <a href="{{ route('login') }}" class="text-gym-accent text-sm font-medium hover:text-white transition-colors">
+                    <a href="{{ route('login') }}"
+                        class="text-gym-accent text-sm font-medium hover:text-white transition-colors">
                         Login
                     </a>
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="text-gym-accent text-sm font-medium hover:text-white transition-colors">
+                        <a href="{{ route('register') }}"
+                            class="text-gym-accent text-sm font-medium hover:text-white transition-colors">
                             Registrarse
                         </a>
-                    @endif    
+                    @endif
+
+
+
+
                 @endauth
+
+
+
+
+
             </nav>
 
             <button class="md:hidden text-white">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
                 </svg>
             </button>
         </div>

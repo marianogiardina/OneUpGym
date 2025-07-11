@@ -18,11 +18,15 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+
+     //Agregar rol? --Juan
+
     protected $fillable = [
         'name',
         'lastname',
         'email',
         'password',
+        'rol',
         'fecha_nacimiento',
         'celular',
         'peso',

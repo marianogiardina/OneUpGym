@@ -7,9 +7,9 @@
     <x-custom.app-header></x-custom.app-header>
 
     <main class="{{ $mainClass }}">
-        {{$slot}} 
+        {{$slot}}
     </main>
 
     <x-custom.app-footer></x-custom.app-footer>
 
-</body> 
+</body>

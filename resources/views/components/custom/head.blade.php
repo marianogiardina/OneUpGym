@@ -12,12 +12,13 @@
                         'gym-secondary': '#19657c',
                         'gym-accent': '#fdb03e',
                         'gym-accent-dark': '#d38620',
-                        'gym-bg': '#fff6e7'
+                        'gym-bg': '#fff6e7',
+                        'gym-light-gray': '#f3f4f6',
                     }
                 }
             }
         }
     </script>
-    
+
     @livewireStyles
 </head>

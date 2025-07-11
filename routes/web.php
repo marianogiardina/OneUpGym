@@ -4,14 +4,22 @@ use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
+//Devuelve la vista de inicio
 Route::get('/', function () {
     return view('index');
 })->name('home');
 
-Route::view('dashboard', 'dashboard')
+//Devuelve la vista de de dashboard
+Route::view('dashboard', 'dashboard/index')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+
+//Devuelve la vista de de dashboard admin
+Route::get('dashboard/admin', [
+    UserController::class, 'index'
+]);
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');

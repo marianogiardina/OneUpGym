@@ -24,12 +24,16 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->firstName(),
-            'lastname' => $this->faker->lastName(),
-            'email' => $this->faker->unique()->safeEmail(),
+            'name' => fake()->firstName(), // Nombre del usuario (input text)
+            'lastname' => fake()->lastName(),
+            'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
-            'fecha_nacimiento' => $this->faker->dateTimeThisDecade()->getTimestamp(), // Edad del usuario (input date)
+            'rol'=> fake()->randomElement([0, 1]), // Rol del usuario (admin o user)
+            'fecha_nacimiento' => fake()->date('Y-m-d', '2000-01-01'), // Fecha de nacimiento del usuario (input date)
+            'celular' => fake()->phoneNumber(), // Número de celular del
+            'peso' => fake()->numberBetween(50, 100), // Peso del usuario (input number)
+            'altura' => fake()->numberBetween(150, 200), // Altura del usuario (input number)
             'remember_token' => Str::random(10),
         ];
     }
