@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use app\Enums\RolEnum;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -29,7 +30,7 @@ class UserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
-            'rol'=> fake()->randomElement([0, 1]), // Rol del usuario (admin o user)
+            'rol'=> fake()->randomElement([RolEnum::USER->value, RolEnum::PROFESOR->value, RolEnum::ADMIN->value]), // Rol del usuario (cliente / profesor / admin)
             'fecha_nacimiento' => fake()->date('Y-m-d', '2000-01-01'), // Fecha de nacimiento del usuario (input date)
             'celular' => fake()->phoneNumber(), // Número de celular del
             'peso' => fake()->numberBetween(50, 100), // Peso del usuario (input number)

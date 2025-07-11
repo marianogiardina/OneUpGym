@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Membresia;
+use App\Models\Clase;
 use Illuminate\Database\Seeder;
+use App\Enums\RolEnum;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'lastname' => 'Saracco',
             'email' => 'test@example.com',
             'password' => '12345678', // password
-            'rol' => 0,
+            'rol' => RolEnum::ADMIN, // Rol del usuario (admin)
             'fecha_nacimiento' => '2000-01-01',
             'celular' => '1234567890',
             'peso' => 70,
@@ -29,6 +31,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory(33)->create();
+
+        Membresia::factory(33)->create();
+
+        Clase::factory(10)->create();
 
     }
 }

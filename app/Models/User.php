@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
+use App\Enums\RolEnum;
+
+
 
 class User extends Authenticatable
 {
@@ -19,7 +22,7 @@ class User extends Authenticatable
      * @var list<string>
      */
 
-     //Agregar rol? --Juan
+    //Agregar rol? --Juan
 
     protected $fillable = [
         'name',
@@ -43,6 +46,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
+
     /**
      * Get the attributes that should be cast.
      *
@@ -53,6 +58,8 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            //Casteo del rol
+            'rol' => RolEnum::class,
         ];
     }
 
@@ -63,7 +70,7 @@ class User extends Authenticatable
     {
         return Str::of($this->name)
             ->explode(' ')
-            ->map(fn (string $name) => Str::of($name)->substr(0, 1))
+            ->map(fn(string $name) => Str::of($name)->substr(0, 1))
             ->implode('');
     }
 }

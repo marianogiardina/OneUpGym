@@ -17,7 +17,10 @@ class ClaseFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nombre' => fake()->word(),
+            'descripcion' => fake()->sentence(),
+            'fecha_hora_inicio' => fake()->dateTimeBetween('now', '+1 month'),
+            'cantidad_maxima_alumnos' => fake()->numberBetween(5, 30),
         ];
     }
 }
