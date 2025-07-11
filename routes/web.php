@@ -17,7 +17,7 @@ Route::view('dashboard', 'dashboard/index')
     ->name('dashboard');
 
 //Devuelve la vista de de dashboard admin
-Route::get('dashboard/admin', [
+Route::get('dashboard/admin/clientes', [
     UserController::class, 'index'
 ]);
 

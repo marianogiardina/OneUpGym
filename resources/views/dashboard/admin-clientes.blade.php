@@ -169,8 +169,8 @@
 
                                 <td class="px-6 py-4 flex items-center justify-center space-x-2">
 
-                                   <x-custom.button href="#" class="bg-blue-500">Editar</x-custom.button>
-                                   <x-custom.button href="#" class="bg-red-500">Eliminar</x-custom.button>
+                                    <x-custom.button href="#" class="bg-blue-500">Editar</x-custom.button>
+                                    <x-custom.button href="#" class="bg-red-500">Eliminar</x-custom.button>
 
                                 </td>
                             </tr>
@@ -180,6 +180,10 @@
                 </table>
             </div>
 
+            <div class="mt-4" >
+                {{-- Paginación de los usuarios --}}
+                {{ $users->links() }}
+            </div>
 
         </div>
     </section>

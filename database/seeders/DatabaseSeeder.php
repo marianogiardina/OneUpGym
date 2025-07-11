@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             'altura' => 175,
         ]);
 
-        User::factory(10)->create();
+        User::factory(33)->create();
 
     }
 }
