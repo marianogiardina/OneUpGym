@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MembresiaController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -8,6 +9,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 })->name('home');
+
+Route::get('membresias',[
+    MembresiaController:: class, 
+    'index'
+])->name('membresias.index');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

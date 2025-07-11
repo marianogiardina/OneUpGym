@@ -12,7 +12,17 @@ class MembresiaController extends Controller
      */
     public function index()
     {
-        //
+        
+        $membresias = Membresia::select('precio', 'tipo', 'duracion_meses')
+            ->distinct()
+            ->orderBy('tipo')
+            ->get();
+            
+        
+        $valorMensual = $membresias->where('tipo', 'mensual')->first()->precio ?? 35000;    
+        //Con el metodo compact se crea un array asociativo con la clave 'membresias' y el valor de la variable $membresias.
+            
+        return view('membresias.index', compact('membresias', 'valorMensual'));
     }
 
     /**

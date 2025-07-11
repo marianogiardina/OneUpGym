@@ -61,7 +61,7 @@ class Register extends Component
 
         Auth::login($user);
 
-        $this->redirect(route('dashboard', absolute: false), navigate: true);
+        $this->redirect(route('home', absolute: false), navigate: true);
     }
 
     // Creo el metodo messages para utilizar en la vista en caso de error en las validaciones
