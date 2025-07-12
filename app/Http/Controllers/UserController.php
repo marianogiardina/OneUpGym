@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Membresia;
+use App\Models\User;
 
 class UserController extends Controller
 {
         public function index()
     {
-        //
+         $users = User::select('id', 'name', 'lastname', 'email', 'rol', 'fecha_nacimiento','created_at' ,'celular', 'peso', 'altura')
+            ->orderBy('id', 'asc')
+            ->paginate(5);
+
+         return view('dashboard.admin-clientes', compact('users'));
     }
 
     /**

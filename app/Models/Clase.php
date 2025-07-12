@@ -9,4 +9,11 @@ class Clase extends Model
 {
     /** @use HasFactory<\Database\Factories\ClaseFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'nombre',
+        'descripcion',
+        'fecha_hora_inicio',
+        'cantidad_maxima_alumnos',
+    ];
 }
