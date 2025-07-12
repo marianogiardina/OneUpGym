@@ -1,4 +1,4 @@
-<x-custom.template>
+<x-custom.template title="OneUp Gym">
 
     <section class="min-h-screen bg-gradient-to-br from-gym-primary via-gym-secondary to-gym-primary flex items-center pt-20">
         <div class="container mx-auto px-6 lg:px-12">
@@ -104,8 +104,8 @@
 
                     </div>
 
-                    <a href="membership.html" class="w-full bg-gym-secondary hover:bg-gym-primary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                        Seleccionar Plan
+                    <a href="{{ route('membresias.index') }}"class="w-full bg-gym-secondary hover:bg-gym-primary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
+                        Ver mas
                     </a>
                 </div>
 
@@ -131,8 +131,8 @@
 
 
 
-                    <a href="membership.html" class="w-full bg-gym-accent hover:bg-gym-accent-dark text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                        Seleccionar Plan
+                    <a href="{{ route('membresias.index') }}" class="w-full bg-gym-accent hover:bg-gym-accent-dark text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
+                        Ver mas
                     </a>
                 </div>
 
@@ -152,8 +152,8 @@
 
                     </div>
 
-                    <a href="membership.html" class="w-full bg-gym-secondary hover:bg-gym-primary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                        Seleccionar Plan
+                    <a href="{{ route('membresias.index') }}" class="w-full bg-gym-secondary hover:bg-gym-primary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
+                        Ver mas
                     </a>
                 </div>
             </div>

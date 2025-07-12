@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MembresiaController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -11,10 +12,19 @@ Route::get('/', function () {
     return view('index');
 })->name('home');
 
+
 //Devuelve la vista de de dashboard
 Route::view('dashboard', 'dashboard/index')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+
+Route::get('membresias',[
+    MembresiaController:: class, 
+    'index'
+])->name('membresias.index');
+
+//Route::view('dashboard', 'dashboard')
+//>>>>>>> main
+//    ->middleware(['auth', 'verified'])
+//    ->name('dashboard');
 
 //Devuelve la vista de de dashboard admin
 Route::get('dashboard/admin/clientes', [

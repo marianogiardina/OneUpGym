@@ -15,13 +15,11 @@ return new class extends Migration
 
             $table->id();
 
-            $table->date('inicio');
-
-            $table->date('fin');
-
             $table->decimal('precio', 8, 2);
 
             $table->enum('tipo',['mensual', 'semestral', 'anual']); // 'mensual', 'semestral', 'anual'
+
+            $table->integer('duracion_meses')->default(1); // Duración en meses, por defecto 1 mes
 
             $table->boolean('activa')->default(false); // estado
 

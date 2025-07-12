@@ -1,6 +1,6 @@
-@props(['mainClass' => ''])
+@props(['mainClass' => '', 'title' => 'OneUp Gym - Tu mejor versión te espera'])
 
-<x-custom.head></x-custom.head>
+<x-custom.head>{{ $title }}</x-custom.head>
 {{-- -- x-headimportante, tiene la config de tailwind y los colores del gym -- --}}
 <body class="bg-gym-bg min-h-screen">
 

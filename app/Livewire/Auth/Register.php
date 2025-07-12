@@ -12,7 +12,7 @@ use Livewire\Component;
 use Carbon\Carbon;
 
 
-#[Layout('components.layouts.auth')]
+#[Layout('components.layouts.auth', ['title' => 'Registro - OneUp Gym'])]
 class Register extends Component
 {
     public string $name = '';
@@ -61,7 +61,7 @@ class Register extends Component
 
         Auth::login($user);
 
-        $this->redirect(route('dashboard', absolute: false), navigate: true);
+        $this->redirect(route('home', absolute: false), navigate: true);
     }
 
     // Creo el metodo messages para utilizar en la vista en caso de error en las validaciones
