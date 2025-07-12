@@ -47,6 +47,25 @@ Route::post('clases/store', [
     ClaseController::class, 'store'
 ])->name('clases.store');
 
+Route::get('clases/{clase}/editar', [
+    ClaseController::class, 'edit'
+])->name('clases.edit');
+
+Route::put('clases/{clase}', [
+    ClaseController::class, 'update'
+])->name('clases.update');
+
+Route::delete('clases/{clase}', [
+    ClaseController::class, 'destroy'
+])->name('clases.destroy');
+
+
+
+
+
+
+
+
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');

@@ -5,6 +5,13 @@
 
         <div class="container mx-auto lg:px-12 p-10">
 
+            @if (session('status'))
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4"
+                    role="alert">
+                    <span class="block sm:inline">{{ session('status') }}</span>
+                </div>
+            @endif
+
             <div class="w-full flex align-middle justify-between">
 
                 <div>
@@ -64,9 +71,15 @@
                                 <td class="px-6 py-4">
                                     {{ $c->profesor_id }}
                                 </td>
-                                <td class="px-6 py-4 flex items-center justify-center space-x-2">
-                                    <x-custom.button href="#" class="bg-blue-500">Editar</x-custom.button>
-                                    <x-custom.button href="#" class="bg-red-500">Eliminar</x-custom.button>
+                                <td class="px-6 py-4 flex items-center align-middle justify-center space-x-2 pr-2">
+
+                                    <x-custom.button href="{{ route('clases.edit', $c) }}" class="bg-blue-500 m-0 ">Editar</x-custom.button>
+
+                                    <form action="{{ route('clases.destroy', $c) }}" method="POST" class="m-0 p-2">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-white bg-red-500 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none hover:bg-red-400">Eliminar</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

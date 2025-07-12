@@ -1,33 +1,22 @@
 <x-custom.template>
     <div class="container mx-auto lg:px-12 p-10 mt-20">
-
-        @if ($errors->any())
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-
-        @endif
-
         <div class="m-auto">
             <div class="max-w-xl p-2 m-auto">
-                <h1 class="text-2xl font-bold text-gray-900">Agregar Nueva Clase</h1>
-                <p class="text-gray-600 text-s">Completa el formulario para agregar una nueva clase al gimnasio.
+                <h1 class="text-2xl font-bold text-gray-900">Modificar clase de {{ $clase->nombre }}</h1>
+                <p class="text-gray-600 text-s">Completa el formulario para modificar la clase.
                 </p>
             </div>
         </div>
 
-
-        <form action="{{ route('clases.store') }}" method="POST"
+        <form action="{{ route('clases.update', $clase) }}" method="POST"
             class="space-y-5 max-w-xl bg-white p-8 rounded-xl shadow-lg m-auto">
             @csrf
+            @method('PUT')
+
             {{-- Nombre --}}
             <div>
                 <label for="nombre" class="block mb-1 text-sm font-semibold text-gray-700">Nombre</label>
-                <input type="text" id="nombre" name="nombre" value="{{ old('nombre') }}"
+                <input type="text" id="nombre" name="nombre" value="{{ $clase->nombre }}"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary"
                     placeholder="Spinning">
             </div>
@@ -37,7 +26,7 @@
                 <label for="descripcion" class="block mb-1 text-sm font-semibold text-gray-700">Descripción</label>
                 <textarea id="descripcion" rows="3" name="descripcion"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary"
-                    placeholder="Descripción de la clase">{{ old('descripcion') }}</textarea>
+                    placeholder="Descripción de la clase">{{ $clase->descripcion }}</textarea>
             </div>
 
             {{-- Tipo --}}
@@ -66,7 +55,8 @@
             <div>
                 <label for="capacidad" class="block mb-1 text-sm font-semibold text-gray-700">Cantidad maxima de
                     alumnos</label>
-                <input type="number" id="capacidad" name="capacidad" value="{{ old('capacidad') }}"
+                <input type="number" id="capacidad" name="capacidad" value="{{ $clase->cantidad_maxima_alumnos }}"
+                    min="1"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary"
                     placeholder="7">
             </div>
@@ -74,9 +64,9 @@
             {{-- Profesor --}}
             <div>
                 <label for="profesor" class="block mb-1 text-sm font-semibold text-gray-700">Profesor</label>
-                <select id="profesor" name="profesor_id"
+                <select id="profesor" name="profesor_id" value="{{ $clase->profesor_id }}"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary">
-                    <option value="" disabled {{ old('profesor_id') ? '' : 'selected' }}>Seleccioná un profesor</option>
+                    <option selected>Seleccioná un profesor</option>
                     <option value="1">Juan López</option>
                     <option value="2">Ana García</option>
                 </select>
