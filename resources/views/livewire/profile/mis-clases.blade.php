@@ -1,7 +1,7 @@
 <div>
     <div class="mb-6">
         <h2 class="text-2xl font-bold text-gym-primary mb-2">Mis Clases</h2>
-        <p class="text-gray-600">Clases a las que estás inscrito</p>
+        <p class="text-gray-600">Clases a las que estás inscripto</p>
     </div>
 
     <div class="space-y-6">
