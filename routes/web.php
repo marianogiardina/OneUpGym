@@ -14,7 +14,7 @@ Route::get('/', function () {
 
 
 //Devuelve la vista de de dashboard
-Route::view('dashboard', 'dashboard/index')
+Route::view('dashboard', 'dashboard/index');
 
 Route::get('membresias',[
     MembresiaController:: class, 
