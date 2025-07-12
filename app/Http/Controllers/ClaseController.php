@@ -15,6 +15,15 @@ class ClaseController extends Controller
         //
     }
 
+    public function adminClases()
+    {
+        $clases = Clase::select('id', 'nombre', 'descripcion','fecha_hora_inicio', 'cantidad_maxima_alumnos',  'profesor_id', 'created_at')
+            ->orderBy('id', 'asc')
+            ->paginate(5);
+
+        return view('dashboard.admin-clases', compact('clases'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

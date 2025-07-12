@@ -22,7 +22,7 @@
         </div>
     </section>
 
-        <x-custom.tab-selector></x-custom.tab-selector>
+    <x-custom.tab-selector></x-custom.tab-selector>
 
     <hr>
 
@@ -41,25 +41,27 @@
 
                 <div>
                     <h2 class="text-1xl md:text-2xl lg:text-3xl font-bold text-gym-primary leading-tight mb-6">
-                        Gestion de Usuarios
+                        Gestion de Clases
                     </h2>
 
                     <p class="text-dark text-lg md:text-xl leading-relaxed mb-8 opacity-90">
-                        Administra los usuarios del gimnasio
+                        Administra las clases del gimnasio
                     </p>
 
                 </div>
 
 
                 <div class="flex justify-end mb-4 h-10">
-                    {{-- Botón para agregar un nuevo Usuario --}}
+                    {{-- Botón para agregar una nueva clase --}}
 
-                    <x-custom.button href="#">Agregar Usuario</x-custom.button>
+                    <x-custom.button href="#">Agregar Clase</x-custom.button>
 
                 </div>
 
 
             </div>
+
+
 
 
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -71,7 +73,7 @@
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 <div class="flex items-center">
-                                    Email
+                                    Descripción
                                     <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                             <path
@@ -81,18 +83,7 @@
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 <div class="flex items-center">
-                                    Teléfono
-                                    <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                            <path
-                                                d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
-                                        </svg></a>
-                                </div>
-                            </th>
-
-                            <th scope="col" class="px-6 py-3">
-                                <div class="flex items-center">
-                                    Estado Membresia
+                                    Fecha y Hora
                                     <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                             <path
@@ -103,7 +94,18 @@
 
                             <th scope="col" class="px-6 py-3">
                                 <div class="flex items-center">
-                                    Fecha Ingreso
+                                    Cantidad Maxima Alumnos
+                                    <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
+                                        </svg></a>
+                                </div>
+                            </th>
+
+                            <th scope="col" class="px-6 py-3">
+                                <div class="flex items-center">
+                                    Profesor id
                                     <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                             <path
@@ -128,24 +130,23 @@
 
                     <tbody class="bg-white">
 
-                        @foreach ($users as $c)
+                        @foreach ($clases as $c)
                             <tr class="">
                                 <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap ">
-                                    {{ $c->name }} {{ $c->lastname }}
+                                    {{ $c->nombre }}
 
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{ $c->email }}
+                                    {{ $c->descripcion }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $c->celular }}
+                                    {{ $c->fecha_hora_inicio }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $c->status }}
+                                    {{ $c->cantidad_maxima_alumnos }}
                                 </td>
-
                                 <td class="px-6 py-4">
-                                    {{ $c->created_at->format('d-m-Y') }}
+                                    {{ $c->profesor_id }}
                                 </td>
 
                                 <td class="px-6 py-4 flex items-center justify-center space-x-2">
@@ -163,7 +164,7 @@
 
             <div class="mt-4">
                 {{-- Paginación de los usuarios --}}
-                {{ $users->links() }}
+                {{ $clases->links() }}
             </div>
 
         </div>

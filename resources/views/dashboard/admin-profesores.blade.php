@@ -41,20 +41,20 @@
 
                 <div>
                     <h2 class="text-1xl md:text-2xl lg:text-3xl font-bold text-gym-primary leading-tight mb-6">
-                        Gestion de Usuarios
+                        Gestion de Profesores
                     </h2>
 
                     <p class="text-dark text-lg md:text-xl leading-relaxed mb-8 opacity-90">
-                        Administra los usuarios del gimnasio
+                        Administra los profesores del gimnasio
                     </p>
 
                 </div>
 
 
                 <div class="flex justify-end mb-4 h-10">
-                    {{-- Botón para agregar un nuevo Usuario --}}
+                    {{-- Botón para agregar un nuevo Profesor --}}
 
-                    <x-custom.button href="#">Agregar Usuario</x-custom.button>
+                    <x-custom.button href="#">Agregar Profesor</x-custom.button>
 
                 </div>
 
@@ -128,24 +128,24 @@
 
                     <tbody class="bg-white">
 
-                        @foreach ($users as $c)
+                        @foreach ($profesores as $p)
                             <tr class="">
                                 <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap ">
-                                    {{ $c->name }} {{ $c->lastname }}
+                                    {{ $p->name }} {{ $p->lastname }}
 
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{ $c->email }}
+                                    {{ $p->email }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $c->celular }}
+                                    {{ $p->celular }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $c->status }}
+                                    {{ $p->status }}
                                 </td>
 
                                 <td class="px-6 py-4">
-                                    {{ $c->created_at->format('d-m-Y') }}
+                                    {{ $p->created_at->format('d-m-Y') }}
                                 </td>
 
                                 <td class="px-6 py-4 flex items-center justify-center space-x-2">
@@ -163,7 +163,7 @@
 
             <div class="mt-4">
                 {{-- Paginación de los usuarios --}}
-                {{ $users->links() }}
+                {{ $profesores->links() }}
             </div>
 
         </div>
