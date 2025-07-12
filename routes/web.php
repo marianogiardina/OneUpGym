@@ -23,15 +23,13 @@ Route::get('membresias',[
 //    ->middleware(['auth', 'verified'])
 //    ->name('dashboard');
 
-//Devuelve la vista de de dashboard
+//Ruta para el dashboard
 Route::view('dashboard', 'dashboard/index');
 
-//Devuelve la vista de de dashboard admin
 Route::get('dashboard/admin/profesores', [
     UserController::class, 'adminProfesores'
 ])->name('dashboard.admin.profesores');
 
-//Devuelve la vista de de dashboard admin
 Route::get('dashboard/admin/clientes', [
     UserController::class, 'adminUsuarios'
 ])->name('dashboard.admin.clientes');
@@ -39,6 +37,16 @@ Route::get('dashboard/admin/clientes', [
 Route::get('dashboard/admin/clases', [
     ClaseController::class, 'adminClases'
 ])->name('dashboard.admin.clases');
+
+//ABM de Clases
+Route::get('clases/create', [
+    ClaseController::class, 'create'
+])->name('clases.create');
+
+Route::post('clases/store', [
+    ClaseController::class, 'store'
+])->name('clases.store');
+
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');

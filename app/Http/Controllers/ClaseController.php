@@ -29,7 +29,7 @@ class ClaseController extends Controller
      */
     public function create()
     {
-        //
+        return view('clases.create');
     }
 
     /**
@@ -37,7 +37,17 @@ class ClaseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        Clase::create([
+            'nombre' => $request->input('nombre'),
+            'descripcion' => $request->input('descripcion'),
+            'fecha_hora_inicio' => $request->input('fecha_hora_inicio'),
+            'cantidad_maxima_alumnos' => $request->input('capacidad'),
+            'profesor_id' => $request->input('profesor_id'),
+        ]);
+
+        return redirect()->route('dashboard.admin.clases')
+            ->with('success', 'Clase creada exitosamente.');
     }
 
     /**

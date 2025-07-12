@@ -2,8 +2,8 @@
 
 <x-custom.template>
 
-    <section class="min-h-1000 gym-bg flex pt-20 ">
-        <div class="container mx-auto lg:px-12 p-10">
+    <section class="min-h-1000 gym-bg flex pt-20 px-10">
+        <div class="container mx-auto lg:px-12 p-10 py-0">
             <div class="max-w-2xl">
                 <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gym-primary leading-tight mb-6">
                     Panel de Administración
