@@ -3,34 +3,33 @@
 @section('content')
     <section class="min-h-1000 gym-bg flex">
 
-        <div class="container mx-auto lg:px-12 p-10">
+        <div class="container mx-auto lg:px-12 pb-10">
 
-
-            <div class="w-full mb-8 flex align-middle justify-between">
-
-
-                <div>
-                    <h2 class="text-1xl md:text-2xl lg:text-3xl font-bold text-gym-primary leading-tight mb-6">
-                        Gestion de Profesores
-                    </h2>
-
-                    <p class="text-dark text-lg md:text-xl leading-relaxed mb-8 opacity-90">
-                        Administra los profesores del gimnasio
-                    </p>
-
-                </div>
-
-
-                <div class="flex justify-end mb-4 h-10">
-                    {{-- Botón para agregar un nuevo Profesor --}}
-
-                    <x-custom.button href="#">Agregar Profesor</x-custom.button>
-
-                </div>
-
+            <div class="my-6">
+                @if (session('success'))
+                    <tr>
+                        <td colspan="7" class="px-6 py-4">
+                            <div class="bg-green-100 text-green-800 px-4 py-2 rounded-md">
+                                {{ session('success') }}
+                            </div>
+                        </td>
+                    </tr>
+                @endif
 
             </div>
 
+            <div class="w-full flex align-middle justify-between">
+
+                <div>
+                    <h2 class="text-lg md:text-xl lg:text-2xl font-bold">Profesores</h2>
+                </div>
+
+                <div class="flex justify-end mb-4 h-10">
+                    {{-- Botón para agregar un nuevo Profesor --}}
+                    <x-custom.button href="{{ route('profesores.create') }}">Agregar Profesor</x-custom.button>
+                </div>
+
+            </div>
 
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left rtl:text-right ">
@@ -40,59 +39,19 @@
                                 Nombre
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                <div class="flex items-center">
-                                    Email
-                                    <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                            <path
-                                                d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
-                                        </svg></a>
-                                </div>
+                                Email
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                <div class="flex items-center">
-                                    Teléfono
-                                    <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                            <path
-                                                d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
-                                        </svg></a>
-                                </div>
+                                Teléfono
                             </th>
-
                             <th scope="col" class="px-6 py-3">
-                                <div class="flex items-center">
-                                    Estado Membresia
-                                    <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                            <path
-                                                d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
-                                        </svg></a>
-                                </div>
+                                Fecha Ingreso
                             </th>
-
-                            <th scope="col" class="px-6 py-3">
-                                <div class="flex items-center">
-                                    Fecha Ingreso
-                                    <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                            <path
-                                                d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
-                                        </svg></a>
-                                </div>
-                            </th>
-
                             <th scope="col" class="px-6 py-3 w-3">
                                 <div class="flex items-center justify-center">
                                     Acciones
-                                    <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                            <path
-                                                d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
-                                        </svg></a>
                                 </div>
                             </th>
-
                         </tr>
                     </thead>
 
@@ -102,7 +61,6 @@
                             <tr class="">
                                 <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap ">
                                     {{ $p->name }} {{ $p->lastname }}
-
                                 </th>
                                 <td class="px-6 py-4">
                                     {{ $p->email }}
@@ -110,19 +68,21 @@
                                 <td class="px-6 py-4">
                                     {{ $p->celular }}
                                 </td>
-                                <td class="px-6 py-4">
-                                    {{ $p->status }}
-                                </td>
 
                                 <td class="px-6 py-4">
                                     {{ $p->created_at->format('d-m-Y') }}
                                 </td>
-
                                 <td class="px-6 py-4 flex items-center justify-center space-x-2">
+                                    <x-custom.button href="{{ route('profesores.edit', $p) }}"
+                                        class="bg-blue-500">Editar</x-custom.button>
 
-                                    <x-custom.button href="#" class="bg-blue-500">Editar</x-custom.button>
-                                    <x-custom.button href="#" class="bg-red-500">Eliminar</x-custom.button>
 
+                                    <form action="{{ route('usuarios.destroy', $p) }}" method="POST" class="m-0 p-2">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="text-white bg-red-500 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none hover:bg-red-400">Eliminar</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

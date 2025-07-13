@@ -29,7 +29,7 @@ class ClaseController extends Controller
      */
     public function create()
     {
-        //
+        return view('clases.create');
     }
 
     /**
@@ -37,7 +37,26 @@ class ClaseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'descripcion' => 'nullable|string|max:1000',
+            'fecha_hora_inicio' => 'required|date',
+            'capacidad' => 'required|integer|min:1',
+            //Cambiar a required cuando se haga la relacion con profesores
+            'profesor_id' => 'nullable|exists:users,id',
+        ]);
+
+        Clase::create([
+            'nombre' => $request->input('nombre'),
+            'descripcion' => $request->input('descripcion'),
+            'fecha_hora_inicio' => $request->input('fecha_hora_inicio'),
+            'cantidad_maxima_alumnos' => $request->input('capacidad'),
+            'profesor_id' => $request->input('profesor_id'),
+        ]);
+
+        return redirect()->route('dashboard.admin.clases')
+            ->with('success', 'Clase creada exitosamente.');
     }
 
     /**
@@ -53,7 +72,7 @@ class ClaseController extends Controller
      */
     public function edit(Clase $clase)
     {
-        //
+        return view("clases.edit", compact('clase'));
     }
 
     /**
@@ -61,7 +80,26 @@ class ClaseController extends Controller
      */
     public function update(Request $request, Clase $clase)
     {
-        //
+
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'descripcion' => 'nullable|string|max:1000',
+            'fecha_hora_inicio' => 'required|date',
+            'capacidad' => 'required|integer|min:1',
+            //Cambiar a required cuando se haga la relacion con profesores
+            'profesor_id' => 'nullable|exists:users,id',
+        ]);
+
+        $clase->update([
+            'nombre' => $request->input('nombre'),
+            'descripcion' => $request->input('descripcion'),
+            'fecha_hora_inicio' => $request->input('fecha_hora_inicio'),
+            'cantidad_maxima_alumnos' => $request->input('capacidad'),
+            'profesor_id' => $request->input('profesor_id'),
+        ]);
+
+        return redirect()->route('dashboard.admin.clases')
+            ->with('success', 'Clase actualizada exitosamente.');
     }
 
     /**
@@ -69,6 +107,9 @@ class ClaseController extends Controller
      */
     public function destroy(Clase $clase)
     {
-        //
+        $clase->delete();
+
+        return redirect()->route('dashboard.admin.clases')
+            ->with('success', 'Clase eliminada exitosamente.');
     }
 }

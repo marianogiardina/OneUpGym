@@ -4,8 +4,8 @@
     : 'flex-1 flex items-center justify-center py-3 px-4 text-gym-primary hover:bg-gray-200 transition-colors border-none focus:outline-none';
 @endphp
 
-<section class="min-h-1000 gym-bg flex  ">
-        <div class="container mx-auto lg:px-12 p-10">
+<section class="min-h-1000 gym-bg flex ">
+        <div class="container mx-auto lg:px-12 pb-5">
             <div class="flex w-full bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
                 <!-- Profesores -->
                 <a href="{{ route('dashboard.admin.profesores') }}"
@@ -23,7 +23,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m9-4a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
-                    <span class="font-medium text-sm">Clientes</span>
+                    <span class="font-medium text-sm">Usuarios</span>
                 </a>
                 <!-- Clases -->
                 <a href="{{ route('dashboard.admin.clases') }}"
