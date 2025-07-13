@@ -17,7 +17,7 @@ class ClaseController extends Controller
 
     public function adminClases()
     {
-        $clases = Clase::select('id', 'nombre', 'descripcion','fecha_hora_inicio', 'cantidad_maxima_alumnos',  'profesor_id', 'created_at')
+        $clases = Clase::select('id', 'nombre', 'descripcion','fecha_hora_inicio', 'cantidad_maxima_alumnos',  'user_id', 'created_at')
             ->orderBy('id', 'asc')
             ->paginate(5);
 
@@ -44,7 +44,7 @@ class ClaseController extends Controller
             'fecha_hora_inicio' => 'required|date',
             'capacidad' => 'required|integer|min:1',
             //Cambiar a required cuando se haga la relacion con profesores
-            'profesor_id' => 'nullable|exists:users,id',
+            'user_id' => 'nullable|exists:users,id',
         ]);
 
         Clase::create([
@@ -52,7 +52,7 @@ class ClaseController extends Controller
             'descripcion' => $request->input('descripcion'),
             'fecha_hora_inicio' => $request->input('fecha_hora_inicio'),
             'cantidad_maxima_alumnos' => $request->input('capacidad'),
-            'profesor_id' => $request->input('profesor_id'),
+            'user_id' => $request->input('user_id'),
         ]);
 
         return redirect()->route('dashboard.admin.clases')
@@ -87,7 +87,7 @@ class ClaseController extends Controller
             'fecha_hora_inicio' => 'required|date',
             'capacidad' => 'required|integer|min:1',
             //Cambiar a required cuando se haga la relacion con profesores
-            'profesor_id' => 'nullable|exists:users,id',
+            'user_id' => 'nullable|exists:users,id',
         ]);
 
         $clase->update([
@@ -95,7 +95,7 @@ class ClaseController extends Controller
             'descripcion' => $request->input('descripcion'),
             'fecha_hora_inicio' => $request->input('fecha_hora_inicio'),
             'cantidad_maxima_alumnos' => $request->input('capacidad'),
-            'profesor_id' => $request->input('profesor_id'),
+            'user_id' => $request->input('user_id'),
         ]);
 
         return redirect()->route('dashboard.admin.clases')

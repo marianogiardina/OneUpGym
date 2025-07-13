@@ -30,9 +30,9 @@ class DatabaseSeeder extends Seeder
             'altura' => 175,
         ]);
 
-        User::factory(33)->create();
+        User::factory(10)->create();
 
-        Membresia::factory(33)->create();
+        //Membresia::factory(33)->create();
 
         Clase::factory(10)->create();
 

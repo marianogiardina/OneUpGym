@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('descripcion'); // Descripción de la clase
             $table->dateTime('fecha_hora_inicio'); // Fecha y hora de inicio de la clase
             $table->integer('cantidad_maxima_alumnos'); // Cantidad máxima de alumnos
-            $table->foreignId('profesor_id')->nullable()->constrained('users')->onDelete('set null'); // ID del profesor 
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null'); // ID del profesor
             $table->timestamps();
         });
 

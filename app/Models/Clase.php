@@ -15,5 +15,6 @@ class Clase extends Model
         'descripcion',
         'fecha_hora_inicio',
         'cantidad_maxima_alumnos',
+        'user_id', // ID del profesor
     ];
 }

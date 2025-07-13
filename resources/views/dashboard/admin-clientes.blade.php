@@ -3,11 +3,11 @@
 @section('content')
     <section class="min-h-1000 gym-bg flex">
 
-        <div class="container mx-auto lg:px-12 pb-10">
+        <div class="container mx-auto lg:px-12 p-8">
 
+            @if (session('success'))
+                <div class="mb-6">
 
-            <div class="my-6">
-                @if (session('success'))
                     <tr>
                         <td colspan="7" class="px-6 py-4">
                             <div class="bg-green-100 text-green-800 px-4 py-2 rounded-md">
@@ -15,9 +15,10 @@
                             </div>
                         </td>
                     </tr>
-                @endif
 
-            </div>
+                </div>
+            @endif
+
 
 
             <div class="w-full flex align-middle justify-between">
