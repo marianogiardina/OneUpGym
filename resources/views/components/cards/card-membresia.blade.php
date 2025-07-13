@@ -67,8 +67,25 @@
         </ul>
     </div>
 
-    <button
-        class="w-full {{$membresia->tipo == 'anual' ? 'bg-gym-accent hover:bg-gym-accent-dark' : 'bg-gym-secondary hover:bg-gym-primary '}} text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-        Seleccionar Plan
-    </button>
+    @if (auth()->check() && auth()->user()->membresiaUsuario && auth()->user()->membresiaUsuario->membresia_id == $membresia->id)
+        <div class="absolute top-4 right-4 bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium">
+            Plan actual
+        </div>
+    @else
+        
+        {{-- Creo el formulario para seleccionar la membresia --}}
+
+        <form action="{{ route('membresia-usuario.store') }}" method="POST">
+            @csrf
+            <input type="hidden" name="membresia_id" value="{{ $membresia->id }}">
+            <button
+                class="w-full {{$membresia->tipo == 'anual' ? 'bg-gym-accent hover:bg-gym-accent-dark' : 'bg-gym-secondary hover:bg-gym-primary '}} text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
+                Seleccionar Plan
+            </button>
+
+        </form>
+    @endif
+
+    
+    
 </div>

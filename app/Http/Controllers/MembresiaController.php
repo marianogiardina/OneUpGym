@@ -13,9 +13,7 @@ class MembresiaController extends Controller
     public function index()
     {
         
-        $membresias = Membresia::select('precio', 'tipo', 'duracion_meses')
-            ->distinct()
-            ->orderBy('tipo')
+        $membresias = Membresia::orderBy('tipo')
             ->get();
             
         

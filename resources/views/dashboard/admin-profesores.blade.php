@@ -7,13 +7,7 @@
 
             <div class="my-6">
                 @if (session('success'))
-                    <tr>
-                        <td colspan="7" class="px-6 py-4">
-                            <div class="bg-green-100 text-green-800 px-4 py-2 rounded-md">
-                                {{ session('success') }}
-                            </div>
-                        </td>
-                    </tr>
+                    <x-alerts.success>{{ session('success') }}</x-alerts.success>
                 @endif
 
             </div>

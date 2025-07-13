@@ -1,6 +1,10 @@
 
 <div class="container mx-auto px-4 py-8">   
-    
+    {{-- Alerta para cuando el usuario compra una membresia --}}
+    @if (session('compro-membresia'))
+        <x-alerts.success>{{ session('compro-membresia') }}</x-alerts.success>
+    @endif
+
     <div class="mb-8">
         <h1 class="text-3xl font-bold text-gym-primary mb-2">Mi Perfil</h1>
         <p class="text-gray-600">Gestiona tus clases, reservas y edita tus datos</p>
@@ -18,9 +22,18 @@
                         </svg>
                     </div>
                     <h3 class="text-xl font-semibold text-gym-primary">{{$name ." ". $lastname}}</h3>
-                    <span class="inline-block bg-gym-accent text-gym-primary px-3 py-1 rounded-full text-sm font-medium mt-2">
-                        Activo
-                    </span>
+                    
+                    @if ($membresiaUsuario && $membresiaUsuario->membresiaActiva())
+                        <span class="inline-block bg-gym-accent text-gym-primary px-3 py-1 rounded-full text-sm font-medium mt-2">
+                            Activo
+                        </span>
+                    @else
+
+                        <span class="inline-block bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-medium mt-2">
+                            Inactivo
+                        </span>
+                    
+                    @endif
                 </div>
 
                 
@@ -31,7 +44,15 @@
                     </div>
                     <div>
                         <p class="text-sm text-gray-600">Miembro desde</p>
-                        <p class="font-medium">{{$createdAt}}</p>
+                        <p class="font-medium">{{$createdAt->locale('es')->translatedFormat('j \\d\\e F \\d\\e Y')}}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600">Membresía</p>
+                        <p class="font-medium">{{ucfirst($membresiaUsuario->membresia->tipo) ?? 'Sin membresía'}}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600">Fecha de vencimiento</p>
+                        <p class="font-medium">{{ $membresiaUsuario->fecha_fin ? $membresiaUsuario->fecha_fin->locale('es')->translatedFormat('j \\d\\e F \\d\\e Y') : 'Sin membresía' }}</p>
                     </div>
                 </div>
 

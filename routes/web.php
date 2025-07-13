@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MembresiaController;
+use App\Http\Controllers\MembresiaUsuarioController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -109,8 +110,6 @@ Route::delete('profesores/{user}', [
 ])->name('profesores.destroy');
 
 
-
-
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 
@@ -120,6 +119,12 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
+Route::middleware(['auth'])->group(function () {
+    
+    Route::post('membresia-usuario/store', [MembresiaUsuarioController::class, 'store'])
+        ->name('membresia-usuario.store');
+
+});
 
 // Middleware para proteger rutas de administrador
 Route::middleware(['admin'])->group(function () {

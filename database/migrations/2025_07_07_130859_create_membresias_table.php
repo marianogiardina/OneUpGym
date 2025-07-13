@@ -21,7 +21,7 @@ return new class extends Migration
 
             $table->integer('duracion_meses')->default(1); // Duración en meses, por defecto 1 mes
 
-            $table->boolean('activa')->default(false); // estado
+            $table->boolean('activa')->default(true); // Si la membresia esta disponible o no
 
             $table->timestamps();
         });
