@@ -5,7 +5,6 @@
 
         <div class="container mx-auto lg:px-12 pb-10">
 
-
             <div class="my-6">
                 @if (session('success'))
                     <tr>
@@ -19,28 +18,18 @@
 
             </div>
 
-
             <div class="w-full flex align-middle justify-between">
 
-
                 <div>
-                    <h2 class="text-lg md:text-xl lg:text-2xl font-bold">Usuarios</h2>
+                    <h2 class="text-lg md:text-xl lg:text-2xl font-bold">Profesores</h2>
                 </div>
-
 
                 <div class="flex justify-end mb-4 h-10">
-                    {{-- Botón para agregar un nuevo Usuario --}}
-
-                    <x-custom.button href="{{ route('usuarios.create') }}">Agregar Usuario</x-custom.button>
-
+                    {{-- Botón para agregar un nuevo Profesor --}}
+                    <x-custom.button href="{{ route('profesores.create') }}">Agregar Profesor</x-custom.button>
                 </div>
 
-
             </div>
-
-
-
-
 
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left rtl:text-right ">
@@ -50,87 +39,50 @@
                                 Nombre
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                <div class="flex items-center">
-                                    Email
-                                </div>
+                                Email
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                <div class="flex items-center">
-                                    Teléfono
-                                </div>
+                                Teléfono
                             </th>
-
                             <th scope="col" class="px-6 py-3">
-                                <div class="flex items-center">
-                                    Rol
-                                </div>
+                                Fecha Ingreso
                             </th>
-
-                            <th scope="col" class="px-6 py-3">
-                                <div class="flex items-center">
-                                    Estado Membresia
-                                </div>
-                            </th>
-
-                            <th scope="col" class="px-6 py-3">
-                                <div class="flex items-center">
-                                    Fecha Ingreso
-                                </div>
-                            </th>
-
                             <th scope="col" class="px-6 py-3 w-3">
                                 <div class="flex items-center justify-center">
                                     Acciones
                                 </div>
                             </th>
-
                         </tr>
                     </thead>
 
                     <tbody class="bg-white">
 
-
-
-                        @foreach ($users as $c)
+                        @foreach ($profesores as $p)
                             <tr class="">
                                 <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap ">
-                                    {{ $c->name }} {{ $c->lastname }}
-
+                                    {{ $p->name }} {{ $p->lastname }}
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{ $c->email }}
+                                    {{ $p->email }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $c->celular }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    {{ $c->rol->label() }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    @if ($c->rol === \App\Enums\RolEnum::USER)
-                                        {{ $c->membresia?->activa ? 'Activa' : 'Inactiva' }}
-                                    @else
-                                        -
-                                    @endif
+                                    {{ $p->celular }}
                                 </td>
 
                                 <td class="px-6 py-4">
-                                    {{ $c->created_at->format('d-m-Y') }}
+                                    {{ $p->created_at->format('d-m-Y') }}
                                 </td>
-
                                 <td class="px-6 py-4 flex items-center justify-center space-x-2">
-
-                                    <x-custom.button href="{{ route('usuarios.edit', $c) }}"
+                                    <x-custom.button href="{{ route('profesores.edit', $p) }}"
                                         class="bg-blue-500">Editar</x-custom.button>
 
 
-                                    <form action="{{ route('usuarios.destroy', $c) }}" method="POST" class="m-0 p-2">
+                                    <form action="{{ route('usuarios.destroy', $p) }}" method="POST" class="m-0 p-2">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
                                             class="text-white bg-red-500 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none hover:bg-red-400">Eliminar</button>
                                     </form>
-
                                 </td>
                             </tr>
                         @endforeach
@@ -141,7 +93,7 @@
 
             <div class="mt-4">
                 {{-- Paginación de los usuarios --}}
-                {{ $users->links() }}
+                {{ $profesores->links() }}
             </div>
 
         </div>

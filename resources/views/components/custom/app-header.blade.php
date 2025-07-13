@@ -12,18 +12,28 @@
                     class="text-sm font-medium hover:text-gym-accent transition-colors">Inicio</a>
                 <a href="clases.html" class="text-sm font-medium hover:text-gym-accent transition-colors">Clases</a>
 
-                @auth 
-                    <a href="calendar.html" class="text-sm font-medium hover:text-gym-accent transition-colors">Calendario</a>
-                    <a href="{{ route('settings.profile') }}" class="text-sm font-medium hover:text-gym-accent transition-colors">Mi perfil</a>
-                    
-                  <form method="POST" action="{{ route('logout') }}" class="m-0 ml-20">
+                @auth
+                    <a href="calendar.html"
+                        class="text-sm font-medium hover:text-gym-accent transition-colors">Calendario</a>
+                    <a href="{{ route('settings.profile') }}"
+                        class="text-sm font-medium hover:text-gym-accent transition-colors">Mi perfil</a>
+
+                    @auth
+                        @if (auth()->user()->rol === \App\Enums\RolEnum::ADMIN)
+                            <a href="{{ route('dashboard.index') }}"
+                                class="text-sm font-medium hover:text-gym-accent transition-colors">
+                                Admin Dashboard
+                            </a>
+                        @endif
+                    @endauth
+
+                    <form method="POST" action="{{ route('logout') }}" class="m-0 ml-20">
                         @csrf
                         <button type="submit"
-                            class="text-sm font-medium hover:text-gym-accent transition-colors bg-transparent border-none p-0 m-0 cursor-pointer">
+                            class="text-sm font-medium hover:text-gym-accent transition-colors">
                             {{ __('Logout') }}
                         </button>
                     </form>
-                    
                 @else
                     <a href="{{ route('login') }}"
                         class="text-gym-accent text-sm font-medium hover:text-white transition-colors">
