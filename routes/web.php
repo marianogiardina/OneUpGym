@@ -38,7 +38,7 @@ Route::get('dashboard/admin/clases', [
     ClaseController::class, 'adminClases'
 ])->name('dashboard.admin.clases');
 
-//ABM de Clases
+//ABM
 Route::get('clases/create', [
     ClaseController::class, 'create'
 ])->name('clases.create');
@@ -59,10 +59,45 @@ Route::delete('clases/{clase}', [
     ClaseController::class, 'destroy'
 ])->name('clases.destroy');
 
+Route::get('usuarios/create', [
+    UserController::class, 'create'
+])->name('usuarios.create');
 
+Route::post('usuarios/store', [
+    UserController::class, 'store'
+])->name('usuarios.store');
 
+Route::get('usuarios/{user}/editar', [
+    UserController::class, 'edit'
+])->name('usuarios.edit');
 
+Route::put('usuarios/{user}', [
+    UserController::class, 'update'
+])->name('usuarios.update');
 
+Route::delete('usuarios/{user}', [
+    UserController::class, 'destroy'
+])->name('usuarios.destroy');
+
+Route::get('profesores/create', [
+    UserController::class, 'create'
+])->name('profesores.create');
+
+Route::post('profesores/store', [
+    UserController::class, 'store'
+])->name('profesores.store');
+
+Route::get('profesores/{user}/editar', [
+    UserController::class, 'edit'
+])->name('profesores.edit');
+
+Route::put('profesores/{user}', [
+    UserController::class, 'update'
+])->name('profesores.update');
+
+Route::delete('profesores/{user}', [
+    UserController::class, 'destroy'
+])->name('profesores.destroy');
 
 
 

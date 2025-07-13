@@ -16,21 +16,30 @@
             {{-- Nombre --}}
             <div>
                 <label for="nombre" class="block mb-1 text-sm font-semibold text-gray-700">Nombre</label>
-                <input type="text" id="nombre" name="nombre" value="{{ $clase->nombre }}"
+                <input type="text" id="nombre" name="nombre" value="{{ old('nombre', $clase->nombre) }}"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary"
                     placeholder="Spinning">
+                @error('nombre')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
             </div>
+
+
+
+
+
 
             {{-- Descripción --}}
             <div>
                 <label for="descripcion" class="block mb-1 text-sm font-semibold text-gray-700">Descripción</label>
                 <textarea id="descripcion" rows="3" name="descripcion"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary"
-                    placeholder="Descripción de la clase">{{ $clase->descripcion }}</textarea>
-            </div>
+                    placeholder="Descripción de la clase">{{ old('descripcion', $clase->descripcion) }}</textarea>
+                @error('descripcion')
+                <p class="text-red-500 text-xs mt-1">{{ $message }}</p @enderror </div>
 
-            {{-- Tipo --}}
-            {{--             <div>
+                {{-- Tipo --}}
+                {{--             <div>
                 <label for="tipo" class="block mb-1 text-sm font-semibold text-gray-700">Tipo</label>
                 <select id="tipo"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary">
@@ -43,45 +52,55 @@
 
 
 
-            {{-- Fecha Hora inicio --}}
-            <div>
-                <label for="fecha_hora_inicio" class="block mb-1 text-sm font-semibold text-gray-700">Fecha y Hora de
-                    Inicio</label>
-                <input type="datetime-local" id="fecha_hora_inicio" name="fecha_hora_inicio"
-                    value="{{ now()->format('Y-m-d\TH:i') }}"
-                    class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary">
-            </div>
-            {{-- Capacidad --}}
-            <div>
-                <label for="capacidad" class="block mb-1 text-sm font-semibold text-gray-700">Cantidad maxima de
-                    alumnos</label>
-                <input type="number" id="capacidad" name="capacidad" value="{{ $clase->cantidad_maxima_alumnos }}"
-                    min="1"
-                    class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary"
-                    placeholder="7">
-            </div>
+                {{-- Fecha Hora inicio --}}
+                <div>
+                    <label for="fecha_hora_inicio" class="block mb-1 text-sm font-semibold text-gray-700">Fecha y Hora
+                        de
+                        Inicio</label>
+                    <input type="datetime-local" id="fecha_hora_inicio" name="fecha_hora_inicio"
+                        value="{{ now()->format('Y-m-d\TH:i') }}"
+                        class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary">
+                    @error('fecha_hora_inicio')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+                {{-- Capacidad --}}
+                <div>
+                    <label for="capacidad" class="block mb-1 text-sm font-semibold text-gray-700">Cantidad maxima de
+                        alumnos</label>
+                    <input type="number" id="capacidad" name="capacidad"
+                        value="{{ old('capacidad', $clase->cantidad_maxima_alumnos) }}" min="1"
+                        class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary"
+                        placeholder="7">
+                    @error('capacidad')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
 
-            {{-- Profesor --}}
-            <div>
-                <label for="profesor" class="block mb-1 text-sm font-semibold text-gray-700">Profesor</label>
-                <select id="profesor" name="profesor_id" value="{{ $clase->profesor_id }}"
-                    class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary">
-                    <option selected>Seleccioná un profesor</option>
-                    <option value="1">Juan López</option>
-                    <option value="2">Ana García</option>
-                </select>
-            </div>
+                {{-- Profesor --}}
+                <div>
+                    <label for="profesor" class="block mb-1 text-sm font-semibold text-gray-700">Profesor</label>
+                    <select id="profesor" name="profesor_id" value="{{ old('profesor_id', $clase->profesor_id) }}"
+                        class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary">
+                        <option selected>Seleccioná un profesor</option>
+                        <option value="1">Juan López</option>
+                        <option value="2">Ana García</option>
+                    </select>
+                    @error('profesor_id')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
 
-            {{-- Duración --}}
-            {{-- <div>
+                {{-- Duración --}}
+                {{-- <div>
                 <label for="duracion" class="block mb-1 text-sm font-semibold text-gray-700">Duración</label>
                 <input type="text" id="duracion"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary"
                     placeholder="60 min" >
             </div> --}}
 
-            {{-- Sala --}}
-            {{-- <div>
+                {{-- Sala --}}
+                {{-- <div>
                 <label for="sala" class="block mb-1 text-sm font-semibold text-gray-700">Sala</label>
                 <select id="sala"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary">
@@ -91,8 +110,8 @@
                 </select>
             </div> --}}
 
-            {{-- Días --}}
-            {{-- <div>
+                {{-- Días --}}
+                {{-- <div>
                 <label class="block mb-1 text-sm font-semibold text-gray-700">Día</label>
                 <div class="grid grid-cols-4 gap-2">
                     @foreach (['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'] as $dia)
@@ -104,8 +123,8 @@
                 </div>
             </div> --}}
 
-            {{-- Hora --}}
-            {{-- <div>
+                {{-- Hora --}}
+                {{-- <div>
                 <label for="hora" class="block mb-1 text-sm font-semibold text-gray-700">Hora</label>
                 <select id="hora" name="hora"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary">
@@ -116,8 +135,8 @@
                 </select>
             </div> --}}
 
-            {{-- Estado --}}
-            {{-- <div>
+                {{-- Estado --}}
+                {{-- <div>
                 <label for="estado" class="block mb-1 text-sm font-semibold text-gray-700">Estado</label>
                 <select id="estado"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary">
@@ -126,17 +145,17 @@
                 </select>
             </div> --}}
 
-            {{-- Botones --}}
-            <div class="flex justify-end gap-3 pt-2">
-                <button type="reset"
-                    class="text-gray-700 bg-gray-200 hover:bg-gray-300 px-5 py-2.5 rounded-lg text-sm font-medium transition">
-                    Cancelar
-                </button>
-                <button type="submit"
-                    class="text-white bg-gym-primary hover:bg-gym-primary/90 px-5 py-2.5 rounded-lg text-sm font-medium transition">
-                    Guardar
-                </button>
-            </div>
+                {{-- Botones --}}
+                <div class="flex justify-end gap-3 pt-2">
+                    <button type="reset"
+                        class="text-gray-700 bg-gray-200 hover:bg-gray-300 px-5 py-2.5 rounded-lg text-sm font-medium transition">
+                        Cancelar
+                    </button>
+                    <button type="submit"
+                        class="text-white bg-gym-primary hover:bg-gym-primary/90 px-5 py-2.5 rounded-lg text-sm font-medium transition">
+                        Guardar
+                    </button>
+                </div>
         </form>
     </div>
 </x-custom.template>

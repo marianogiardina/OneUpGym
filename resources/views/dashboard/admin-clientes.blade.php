@@ -3,7 +3,21 @@
 @section('content')
     <section class="min-h-1000 gym-bg flex">
 
-        <div class="container mx-auto lg:px-12 p-10">
+        <div class="container mx-auto lg:px-12 pb-10">
+
+
+            <div class="my-6">
+                @if (session('success'))
+                    <tr>
+                        <td colspan="7" class="px-6 py-4">
+                            <div class="bg-green-100 text-green-800 px-4 py-2 rounded-md">
+                                {{ session('success') }}
+                            </div>
+                        </td>
+                    </tr>
+                @endif
+
+            </div>
 
 
             <div class="w-full flex align-middle justify-between">
@@ -17,12 +31,15 @@
                 <div class="flex justify-end mb-4 h-10">
                     {{-- Botón para agregar un nuevo Usuario --}}
 
-                    <x-custom.button href="#">Agregar Usuario</x-custom.button>
+                    <x-custom.button href="{{ route('usuarios.create') }}">Agregar Usuario</x-custom.button>
 
                 </div>
 
 
             </div>
+
+
+
 
 
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -72,6 +89,8 @@
 
                     <tbody class="bg-white">
 
+
+
                         @foreach ($users as $c)
                             <tr class="">
                                 <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap ">
@@ -101,8 +120,16 @@
 
                                 <td class="px-6 py-4 flex items-center justify-center space-x-2">
 
-                                    <x-custom.button href="#" class="bg-blue-500">Editar</x-custom.button>
-                                    <x-custom.button href="#" class="bg-red-500">Eliminar</x-custom.button>
+                                    <x-custom.button href="{{ route('usuarios.edit', $c) }}"
+                                        class="bg-blue-500">Editar</x-custom.button>
+
+
+                                    <form action="{{ route('usuarios.destroy', $c) }}" method="POST" class="m-0 p-2">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="text-white bg-red-500 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none hover:bg-red-400">Eliminar</button>
+                                    </form>
 
                                 </td>
                             </tr>

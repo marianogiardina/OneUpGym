@@ -1,16 +1,6 @@
 <x-custom.template>
     <div class="container mx-auto lg:px-12 p-10 mt-20">
 
-        @if ($errors->any())
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-
-        @endif
 
         <div class="m-auto">
             <div class="max-w-xl p-2 m-auto">
@@ -30,6 +20,9 @@
                 <input type="text" id="nombre" name="nombre" value="{{ old('nombre') }}"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary"
                     placeholder="Spinning">
+                @error('nombre')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
             </div>
 
             {{-- Descripción --}}
@@ -38,6 +31,9 @@
                 <textarea id="descripcion" rows="3" name="descripcion"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary"
                     placeholder="Descripción de la clase">{{ old('descripcion') }}</textarea>
+                @error('descripcion')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
             </div>
 
             {{-- Tipo --}}
@@ -61,6 +57,9 @@
                 <input type="datetime-local" id="fecha_hora_inicio" name="fecha_hora_inicio"
                     value="{{ now()->format('Y-m-d\TH:i') }}"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary">
+                @error('fecha_hora_inicio')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
             </div>
             {{-- Capacidad --}}
             <div>
@@ -69,6 +68,9 @@
                 <input type="number" id="capacidad" name="capacidad" value="{{ old('capacidad') }}"
                     class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary"
                     placeholder="7">
+                @error('capacidad')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
             </div>
 
             {{-- Profesor --}}
@@ -80,6 +82,9 @@
                     <option value="1">Juan López</option>
                     <option value="2">Ana García</option>
                 </select>
+                @error('profesor_id')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
             </div>
 
             {{-- Duración --}}

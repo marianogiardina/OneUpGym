@@ -56,7 +56,7 @@ class ClaseController extends Controller
         ]);
 
         return redirect()->route('dashboard.admin.clases')
-            ->with('status', 'Clase creada exitosamente.');
+            ->with('success', 'Clase creada exitosamente.');
     }
 
     /**
@@ -80,6 +80,16 @@ class ClaseController extends Controller
      */
     public function update(Request $request, Clase $clase)
     {
+
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'descripcion' => 'nullable|string|max:1000',
+            'fecha_hora_inicio' => 'required|date',
+            'capacidad' => 'required|integer|min:1',
+            //Cambiar a required cuando se haga la relacion con profesores
+            'profesor_id' => 'nullable|exists:users,id',
+        ]);
+
         $clase->update([
             'nombre' => $request->input('nombre'),
             'descripcion' => $request->input('descripcion'),
@@ -89,7 +99,7 @@ class ClaseController extends Controller
         ]);
 
         return redirect()->route('dashboard.admin.clases')
-            ->with('status', 'Clase actualizada exitosamente.');
+            ->with('success', 'Clase actualizada exitosamente.');
     }
 
     /**
@@ -100,6 +110,6 @@ class ClaseController extends Controller
         $clase->delete();
 
         return redirect()->route('dashboard.admin.clases')
-            ->with('status', 'Clase eliminada exitosamente.');
+            ->with('success', 'Clase eliminada exitosamente.');
     }
 }
