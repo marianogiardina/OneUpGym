@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\RolEnum;
 use App\Models\Clase;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ClaseController extends Controller
@@ -29,7 +31,13 @@ class ClaseController extends Controller
      */
     public function create()
     {
-        return view('clases.create');
+
+        $profesores = User::where('rol', RolEnum::PROFESOR->value)
+            ->select('id', 'name', 'lastname')
+            ->orderBy('name', 'asc')
+            ->get();
+
+        return view('clases.create', compact('profesores'));
     }
 
     /**
@@ -52,8 +60,9 @@ class ClaseController extends Controller
             'descripcion' => $request->input('descripcion'),
             'fecha_hora_inicio' => $request->input('fecha_hora_inicio'),
             'cantidad_maxima_alumnos' => $request->input('capacidad'),
-            'user_id' => $request->input('user_id'),
+            'user_id' => $request->input('profesor_id'),
         ]);
+
 
         return redirect()->route('dashboard.admin.clases')
             ->with('success', 'Clase creada exitosamente.');
@@ -72,7 +81,12 @@ class ClaseController extends Controller
      */
     public function edit(Clase $clase)
     {
-        return view("clases.edit", compact('clase'));
+        $profesores = User::where('rol', RolEnum::PROFESOR->value)
+            ->select('id', 'name', 'lastname')
+            ->orderBy('name', 'asc')
+            ->get();
+
+        return view("clases.edit", compact('clase', 'profesores'));
     }
 
     /**
@@ -86,7 +100,6 @@ class ClaseController extends Controller
             'descripcion' => 'nullable|string|max:1000',
             'fecha_hora_inicio' => 'required|date',
             'capacidad' => 'required|integer|min:1',
-            //Cambiar a required cuando se haga la relacion con profesores
             'user_id' => 'nullable|exists:users,id',
         ]);
 
@@ -95,7 +108,7 @@ class ClaseController extends Controller
             'descripcion' => $request->input('descripcion'),
             'fecha_hora_inicio' => $request->input('fecha_hora_inicio'),
             'cantidad_maxima_alumnos' => $request->input('capacidad'),
-            'user_id' => $request->input('user_id'),
+            'user_id' => $request->input('profesor_id'),
         ]);
 
         return redirect()->route('dashboard.admin.clases')

@@ -49,7 +49,7 @@
                                     Capacidad
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Profesor id
+                                    Profesor
                                 </th>
                                 <th scope="col" class="px-6 py-3 w-3">
                                     <div class="flex items-center justify-center">
@@ -76,7 +76,8 @@
                                         {{ $c->cantidad_maxima_alumnos }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ $c->user_id }}
+                                        {{ $c->user->name ?? 'No asignado' }}
+                                        {{ $c->user->lastname ?? '' }}
                                     </td>
                                     <td class="px-6 py-4 flex items-center align-middle justify-center space-x-2 pr-2">
 

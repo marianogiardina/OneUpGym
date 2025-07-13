@@ -80,12 +80,19 @@
                 {{-- Profesor --}}
                 <div>
                     <label for="profesor" class="block mb-1 text-sm font-semibold text-gray-700">Profesor</label>
-                    <select id="profesor" name="profesor_id" value="{{ old('profesor_id', $clase->profesor_id) }}"
+                    <select id="profesor" name="profesor_id"
                         class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary">
-                        <option selected>Seleccioná un profesor</option>
-                        <option value="1">Juan López</option>
-                        <option value="2">Ana García</option>
+
+                        <option value="" {{ old('profesor_id') ? '' : 'selected' }}>Sin asignar</option>
+
+                        @foreach ($profesores as $profesor)
+                            <option value="{{ $profesor->id }}"
+                                {{ old('profesor_id') == $profesor->id ? 'selected' : '' }}>
+                                {{ $profesor->name }} {{ $profesor->lastname }}
+                            </option>
+                        @endforeach
                     </select>
+
                     @error('profesor_id')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
