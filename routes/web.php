@@ -105,28 +105,18 @@ Route::delete('profesores/{user}', [
 
 
 
-// Route::middleware(['auth'])->group(function () {
-//     Route::redirect('settings', 'settings/profile');
-
-//     Route::get('settings/profile', Profile::class)->name('settings.profile');
-//     Route::get('settings/password', Password::class)->name('settings.password');
-//     Route::get('settings/appearance', Appearance::class)->name('settings.appearance');
-
-//     Route::get('dashboard', function () {
-//         return view('dashboard.index');
-//     })->name('dashboard.index');
-//     Route::get('dashboard/admin/profesores', [UserController::class, 'adminProfesores'])->name('dashboard.admin.profesores');
-//     Route::get('dashboard/admin/clientes', [UserController::class, 'adminUsuarios'])->name('dashboard.admin.clientes');
-//     Route::get('dashboard/admin/clases', [ClaseController::class, 'adminClases'])->name('dashboard.admin.clases');
-// });
-
-
-// Middleware para proteger rutas de administrador
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware(['auth'])->group(function () {
+    Route::redirect('settings', 'settings/profile');
 
     Route::get('settings/profile', Profile::class)->name('settings.profile');
     Route::get('settings/password', Password::class)->name('settings.password');
     Route::get('settings/appearance', Appearance::class)->name('settings.appearance');
+
+});
+
+
+// Middleware para proteger rutas de administrador
+Route::middleware(['admin'])->group(function () {
 
     Route::get('dashboard', fn() => view('dashboard.index'))->name('dashboard.index');
     Route::get('dashboard/admin/profesores', [UserController::class, 'adminProfesores'])->name('dashboard.admin.profesores');
