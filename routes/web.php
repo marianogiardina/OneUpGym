@@ -24,7 +24,9 @@ Route::get('membresias',[
 //    ->name('dashboard');
 
 //Ruta para el dashboard
-Route::view('dashboard', 'dashboard/index');
+Route::get('dashboard', function () {
+    return view('dashboard.index');
+})->name('dashboard.index');
 
 Route::get('dashboard/admin/profesores', [
     UserController::class, 'adminProfesores'
