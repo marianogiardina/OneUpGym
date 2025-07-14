@@ -95,7 +95,7 @@
                         <div class="mb-2">
                             <span class="text-gray-400 text-lg">&nbsp;</span>
                         </div>
-                        <div class="text-4xl font-bold text-gym-primary mb-2">$35,000/mes</div>
+                        <div class="text-4xl font-bold text-gym-primary mb-2">$35.000</div>
                         <p class="text-gray-600">Pago mensual</p>
                     </div>
 
@@ -118,9 +118,9 @@
                         <h3 class="text-xl font-bold text-gym-primary mb-2">Membresía Anual
                         </h3>
                         <div class="mb-2">
-                            <span class="text-gray-400 line-through text-lg">$35,000/mes</span>
+                            <span class="text-gray-400 text-lg">$25.000/mes</span>
                         </div>
-                        <div class="text-4xl font-bold text-gym-primary mb-2">$25,000/mes</div>
+                        <div class="text-4xl font-bold text-gym-primary mb-2">$300.000</div>
                         <p class="text-gray-600">Pago anual</p>
                     </div>
 
@@ -141,9 +141,9 @@
                     <div class="text-center mb-6">
                         <h3 class="text-xl font-bold text-gym-primary mb-2">Membresía Semestral</h3>
                         <div class="mb-2">
-                            <span class="text-gray-400 line-through text-lg">$35,000/mes</span>
+                            <span class="text-gray-400 text-lg">$30.000/mes</span>
                         </div>
-                        <div class="text-4xl font-bold text-gym-primary mb-2">$30,000/mes</div>
+                        <div class="text-4xl font-bold text-gym-primary mb-2">$180.000</div>
                         <p class="text-gray-600">Pago semestral</p>
                     </div>
 

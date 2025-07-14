@@ -30,9 +30,38 @@ class DatabaseSeeder extends Seeder
             'altura' => 175,
         ]);
 
-        User::factory(10)->create();
 
-        //Membresia::factory(33)->create();
+        User::factory()->create([
+            'name' => 'Mariano',
+            'lastname' => 'Giardina',
+            'email' => 'marianogiardinamonti1@gmail.com',
+            'password' => '12345678', // password
+            'rol' => RolEnum::ADMIN, // Rol del usuario (admin)
+            'fecha_nacimiento' => '2000-01-01',
+            'celular' => '1234567890',
+            'peso' => 70,
+            'altura' => 175,
+        ]);
+
+        Membresia::create([
+            'tipo' => 'mensual',
+            'precio' => 35000.00,
+            'duracion_meses' => 1,
+        ]);
+
+        Membresia::create([
+            'tipo' => 'semestral',
+            'precio' => 180000.00,
+            'duracion_meses' => 6,
+        ]);
+
+        Membresia::create([
+            'tipo' => 'anual',
+            'precio' => 300000.00,
+            'duracion_meses' => 12,
+        ]);
+
+        User::factory(33)->create();
 
         Clase::create([
             'nombre' => 'Yoga',

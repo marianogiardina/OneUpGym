@@ -6,7 +6,7 @@
                 <span class="font-bold">GYM</span>
             </div>
             <div class="flex space-x-6 text-sm">
-                <a href="contact.html" class="hover:text-gym-accent transition-colors">Contacto</a>
+                <a href="{{route('contacto')}}" class="hover:text-gym-accent transition-colors">Contacto</a>
 
             </div>
         </div>

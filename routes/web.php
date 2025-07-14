@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\MembresiaController;
+use App\Http\Controllers\MembresiaUsuarioController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClaseController;
+use App\Http\Controllers\ContactoController;
 
 //Devuelve la vista de inicio
 Route::get('/', function () {
@@ -114,7 +116,6 @@ Route::get('calendario', [
 ])->middleware('auth')->name('calendario.index');
 
 
-
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 
@@ -124,6 +125,24 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
+Route::middleware(['auth'])->group(function () {
+    
+    Route::post('membresia-usuario/store', [
+        MembresiaUsuarioController::class, 'store'
+    ])->name('membresia-usuario.store');
+
+    Route::get('contacto', [
+        ContactoController::class,
+        'index'
+    ])->name('contacto');
+
+    Route::post('contacto', [
+        ContactoController::class,
+        'store'
+    ])->name('contacto.store');
+
+
+});
 
 // Middleware para proteger rutas de administrador
 Route::middleware(['admin'])->group(function () {

@@ -11,10 +11,9 @@ class Membresia extends Model
     use HasFactory;
 
     protected $fillable = [
-        'inicio',
-        'fin',
         'precio',
         'tipo',
         'activa',
+        'duracion_meses',
     ];
 }

@@ -73,4 +73,12 @@ class User extends Authenticatable
             ->map(fn(string $name) => Str::of($name)->substr(0, 1))
             ->implode('');
     }
+
+    /**
+     * Con este metodo relaciono el usuario con su membresia. Con esto puedo acceder a la membresia del usuario desde el modelo User.
+     */
+    public function membresiaUsuario()
+    {
+        return $this->hasOne(MembresiaUsuario::class);
+    }
 }

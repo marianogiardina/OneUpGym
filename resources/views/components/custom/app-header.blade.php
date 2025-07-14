@@ -13,10 +13,16 @@
                 <a href="clases.html" class="text-sm font-medium hover:text-gym-accent transition-colors">Clases</a>
 
                 @auth
+
                     <a href="{{ route('calendario.index') }}"
                         class="text-sm font-medium hover:text-gym-accent transition-colors">Calendario</a>
+
                     <a href="{{ route('settings.profile') }}"
-                        class="text-sm font-medium hover:text-gym-accent transition-colors">Mi perfil</a>
+                        class="text-sm font-medium hover:text-gym-accent transition-colors">Mi perfil
+                    </a>
+                    <a href="{{ route('contacto') }}"
+                        class="text-sm font-medium hover:text-gym-accent transition-colors">Contacto
+                    </a>
 
                     @auth
                         @if (auth()->user()->rol === \App\Enums\RolEnum::ADMIN)

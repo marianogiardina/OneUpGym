@@ -5,22 +5,12 @@
 
         <div class="container mx-auto lg:px-12 p-8">
 
-            @if (session('success'))
-                <div class="mb-6">
-
-                    <tr>
-                        <td colspan="7" class="px-6 py-4">
-                            <div class="bg-green-100 text-green-800 px-4 py-2 rounded-md">
-                                {{ session('success') }}
-                            </div>
-                        </td>
-                    </tr>
-
-                </div>
-            @endif
-
-
-
+            <div class="my-6">
+                @if (session('success'))
+                    <x-alerts.success>{{ session('success') }}</x-alerts.success>
+                @endif
+            </div>
+           
             <div class="w-full flex align-middle justify-between">
 
 
@@ -109,7 +99,16 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     @if ($c->rol === \App\Enums\RolEnum::USER)
-                                        {{ $c->membresia?->activa ? 'Activa' : 'Inactiva' }}
+                                        
+
+                                        @if($c->membresiaUsuario)
+
+
+                                            {{ $c->membresiaUsuario->membresiaActiva() ? 'Activa' : 'Inactiva' }}
+
+                                        @else
+                                            Sin membresía
+                                        @endif
                                     @else
                                         -
                                     @endif

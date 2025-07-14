@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Settings;
 
+use App\Models\MembresiaUsuario;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -25,11 +26,12 @@ class Profile extends Component
 
     public string $altura = '';
 
-    public string $createdAt = '';
+    public $createdAt = '';
 
-    public bool $editingProfile = false;
+    //Envio  a la vista un array con los datos de la membresia del usuario, en caso de que no tenga membresia, lo dejo como null
+    public $membresiaUsuario = null;
 
-    public string $activeTab = 'misClases';
+    public bool $editandoPerfil = false;
 
     /**
      * Mount the component.
@@ -42,7 +44,11 @@ class Profile extends Component
         $this->celular = Auth::user()->celular;
         $this->peso = Auth::user()->peso ?? ""; // Inicializa en string vacio si es null
         $this->altura = Auth::user()->altura ?? ""; // Inicializa en string vacio si es null
-        $this->createdAt = Auth::user()->created_at->format('d/m/Y'); // Formato de fecha personalizado
+        $this->createdAt = Auth::user()->created_at;
+
+        //Envio a la vista la membresia del usuario con sus datos
+        $this->membresiaUsuario = Auth::user()->membresiaUsuario;
+
     }
 
     /**
@@ -86,8 +92,7 @@ class Profile extends Component
         $user->save();
 
         // Muestro mensaje de éxito
-        Session::flash('status', 'profile-updated');
-        Session::flash('message', 'Tu perfil ha sido actualizado exitosamente.');
+        session()->flash('success', 'Tu perfil ha sido actualizado exitosamente.');
 
         $this->dispatch('profile-updated', name: $user->name);
     }
@@ -132,24 +137,21 @@ class Profile extends Component
     /**
      * Metodo para mostrar el contendido de edicion de usuario.
      */
-    public function showEditProfile(): void
+    public function mostrarEdicionPerfil(): void
     {
-        $this->editingProfile = true;
+        $this->editandoPerfil = true;
     }
 
     /**
      * Metodo para mostrar el contenido de vista de perfil.
      */
-    public function showProfileView(): void
+    public function mostrarVistaPerfil(): void
     {
-        $this->editingProfile = false;
+        $this->editandoPerfil = false;
     }
 
     /**
      * Change the active tab.
      */
-    public function showTab(string $tabName): void
-    {
-        $this->activeTab = $tabName;
-    }
+
 }
