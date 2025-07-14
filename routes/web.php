@@ -110,15 +110,6 @@ Route::delete('profesores/{user}', [
     'destroy'
 ])->name('profesores.destroy');
 
-Route::get('contacto', [
-    ContactoController::class,
-    'index'
-])->name('contacto');
-
-Route::post('contacto', [
-    ContactoController::class,
-    'store'
-])->name('contacto.store');
 
 
 Route::middleware(['auth'])->group(function () {
@@ -132,8 +123,20 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     
-    Route::post('membresia-usuario/store', [MembresiaUsuarioController::class, 'store'])
-        ->name('membresia-usuario.store');
+    Route::post('membresia-usuario/store', [
+        MembresiaUsuarioController::class, 'store'
+    ])->name('membresia-usuario.store');
+
+    Route::get('contacto', [
+        ContactoController::class,
+        'index'
+    ])->name('contacto');
+
+    Route::post('contacto', [
+        ContactoController::class,
+        'store'
+    ])->name('contacto.store');
+
 
 });
 
