@@ -52,18 +52,48 @@
 
 
 
-                {{-- Fecha Hora inicio --}}
+                {{-- Día de la clase --}}
                 <div>
-                    <label for="fecha_hora_inicio" class="block mb-1 text-sm font-semibold text-gray-700">Fecha y Hora
-                        de
-                        Inicio</label>
-                    <input type="datetime-local" id="fecha_hora_inicio" name="fecha_hora_inicio"
-                        value="{{ now()->format('Y-m-d\TH:i') }}"
-                        class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary">
-                    @error('fecha_hora_inicio')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                    @enderror
+                    <label for="dia" class="block mb-1 text-sm font-semibold text-gray-700">Día</label>
+                    <div>
+                        <select name="dia" id="dia"
+                            class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary">
+                            @foreach (['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo'] as $dia)
+                                <option value="{{ $dia }}"
+                                    {{ old('dia', $clase->dia ?? '') === $dia ? 'selected' : '' }}>
+                                    {{ ucfirst($dia) }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('dia')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
                 </div>
+
+
+                {{-- Hora de inicio --}}
+                <div>
+                    <label for="hora" class="block mb-1 text-sm font-semibold text-gray-700">Hora de inicio</label>
+                    <div>
+                        <select name="hora" id="hora" required class="border rounded p-2">
+                            @for ($h = 10; $h <= 20; $h++)
+                                @php
+                                    $hora = sprintf('%02d:00:00', $h);
+                                @endphp
+                                <option value="{{ $hora }}"
+                                    {{ old('hora', $clase->hora ?? '') === $hora ? 'selected' : '' }}>
+                                    {{ sprintf('%02d:00', $h) }}
+                                </option>
+                            @endfor
+                        </select>
+                        @error('hora')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+
+
                 {{-- Capacidad --}}
                 <div>
                     <label for="capacidad" class="block mb-1 text-sm font-semibold text-gray-700">Cantidad maxima de
@@ -80,12 +110,21 @@
                 {{-- Profesor --}}
                 <div>
                     <label for="profesor" class="block mb-1 text-sm font-semibold text-gray-700">Profesor</label>
-                    <select id="profesor" name="profesor_id" value="{{ old('profesor_id', $clase->profesor_id) }}"
+                    <select id="profesor" name="profesor_id"
                         class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary">
-                        <option selected>Seleccioná un profesor</option>
-                        <option value="1">Juan López</option>
-                        <option value="2">Ana García</option>
+
+                        <option value="" {{ old('profesor_id', $clase->user_id ?? '') == '' ? 'selected' : '' }}>
+                            Sin asignar
+                        </option>
+
+                        @foreach ($profesores as $profesor)
+                            <option value="{{ $profesor->id }}"
+                                {{ old('profesor_id', $clase->user_id ?? '') == $profesor->id ? 'selected' : '' }}>
+                                {{ $profesor->name }} {{ $profesor->lastname }}
+                            </option>
+                        @endforeach
                     </select>
+
                     @error('profesor_id')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror

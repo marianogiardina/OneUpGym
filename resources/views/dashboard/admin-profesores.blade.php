@@ -3,15 +3,14 @@
 @section('content')
     <section class="min-h-1000 gym-bg flex">
 
-        <div class="container mx-auto lg:px-12 pb-10">
-
+        <div class="container mx-auto lg:px-12 p-8">
+        
             <div class="my-6">
                 @if (session('success'))
                     <x-alerts.success>{{ session('success') }}</x-alerts.success>
                 @endif
-
             </div>
-
+           
             <div class="w-full flex align-middle justify-between">
 
                 <div>

@@ -22,7 +22,7 @@ Route::get('membresias', [
 Route::view('dashboard', 'dashboard/index');
 
 Route::get('membresias',[
-    MembresiaController:: class, 
+    MembresiaController:: class,
     'index'
 ])->name('membresias.index');
 
@@ -110,6 +110,10 @@ Route::delete('profesores/{user}', [
     'destroy'
 ])->name('profesores.destroy');
 
+Route::get('calendario', [
+    ClaseController::class,
+    'index'
+])->middleware('auth')->name('calendario.index');
 
 
 Route::middleware(['auth'])->group(function () {

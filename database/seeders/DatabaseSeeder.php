@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             'altura' => 175,
         ]);
 
+
         User::factory()->create([
             'name' => 'Mariano',
             'lastname' => 'Giardina',
@@ -62,9 +63,15 @@ class DatabaseSeeder extends Seeder
 
         User::factory(33)->create();
 
-        // Membresia::factory(33)->create();
+        Clase::create([
+            'nombre' => 'Yoga',
+            'descripcion' => 'Clase de yoga para relajación',
+            'dia' => 'lunes',
+            'hora' => '18:00:00',
+            'cantidad_maxima_alumnos' => 20,
+            'user_id' => 1
+        ]);
 
-        Clase::factory(10)->create();
-
+        //Clase::factory(10)->create();
     }
 }

@@ -19,8 +19,9 @@ class ClaseFactory extends Factory
         return [
             'nombre' => fake()->word(),
             'descripcion' => fake()->sentence(),
-            'fecha_hora_inicio' => fake()->dateTimeBetween('now', '+1 month'),
+            'hora' => fake()->dateTimeBetween('now', '+1 month'),
             'cantidad_maxima_alumnos' => fake()->numberBetween(5, 30),
+            'user_id' => fake()->numberBetween(1, 10), // ID del profesor, puede ser asignado posteriormente
         ];
     }
 }
