@@ -7,7 +7,7 @@
 
     <div class="mb-8">
         <h1 class="text-3xl font-bold text-gym-primary mb-2">Mi Perfil</h1>
-        <p class="text-gray-600">Gestiona tus clases, reservas y edita tus datos</p>
+        <p class="text-gray-600">Gestiona tus clases y edita tus datos</p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
@@ -48,16 +48,16 @@
                     </div>
                     <div>
                         <p class="text-sm text-gray-600">Membresía</p>
-                        <p class="font-medium">{{ucfirst($membresiaUsuario->membresia->tipo) ?? 'Sin membresía'}}</p>
+                        <p class="font-medium">{{($membresiaUsuario) ? ucfirst($membresiaUsuario->membresia->tipo) : 'Sin membresia'}}</p>
                     </div>
                     <div>
                         <p class="text-sm text-gray-600">Fecha de vencimiento</p>
-                        <p class="font-medium">{{ $membresiaUsuario->fecha_fin ? $membresiaUsuario->fecha_fin->locale('es')->translatedFormat('j \\d\\e F \\d\\e Y') : 'Sin membresía' }}</p>
+                        <p class="font-medium">{{ $membresiaUsuario ? $membresiaUsuario->fecha_fin->locale('es')->translatedFormat('j \\d\\e F \\d\\e Y') : 'Sin membresía' }}</p>
                     </div>
                 </div>
 
                 
-                <button wire:click="showEditProfile" class="w-full bg-gym-secondary text-white py-2 px-4 rounded-md font-medium hover:bg-gym-primary transition-colors">
+                <button wire:click="mostrarEdicionPerfil" class="w-full bg-gym-secondary text-white py-2 px-4 rounded-md font-medium hover:bg-gym-primary transition-colors">
                     Editar Perfil
                 </button>
 
@@ -76,29 +76,9 @@
                             <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                             </svg>
-                            <span class="text-sm">Clases Inscritas</span>
+                            <span class="text-sm">Clases Inscriptas</span>
                         </div>
                         <span class="bg-blue-600 text-white px-2 py-1 rounded-full text-sm font-bold">3</span>
-                    </div>
-
-                    <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
-                        <div class="flex items-center">
-                            <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <span class="text-sm">Próxima Clase</span>
-                        </div>
-                        <span class="text-green-600 text-sm font-medium">2023-05-15</span>
-                    </div>
-
-                    <div class="flex items-center justify-between p-3 bg-orange-50 rounded-lg">
-                        <div class="flex items-center">
-                            <svg class="w-5 h-5 text-orange-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
-                            <span class="text-sm">Clases Disponibles</span>
-                        </div>
-                        <span class="bg-orange-600 text-white px-2 py-1 rounded-full text-sm font-bold">5</span>
                     </div>
                 </div>
             </div>
@@ -107,35 +87,27 @@
         
         <div class="lg:col-span-3">
             
-            <div id="profileView" class="bg-white rounded-lg shadow-lg h-full @if($editingProfile) hidden @endif">
+            <div id="profileView" class="bg-white rounded-lg shadow-lg h-full @if($editandoPerfil) hidden @endif">
                 <!-- Tabs -->
                 <div class="border-b border-gray-200">
                     <nav class="flex">
-                        <button wire:click="showTab('misClases')" class="tab-button px-6 py-4 text-sm font-medium border-b-2 {{ $activeTab === 'misClases' ? 'border-gym-accent text-gym-primary' : 'border-transparent text-gray-500 hover:text-gray-700' }}">
+                        <div class="tab-button px-6 py-4 text-sm font-medium border-b-2">
                             Mis Clases
-                        </button>
-                        <button wire:click="showTab('clasesDisponibles')" class="tab-button px-6 py-4 text-sm font-medium border-b-2 {{ $activeTab === 'clasesDisponibles' ? 'border-gym-accent text-gym-primary' : 'border-transparent text-gray-500 hover:text-gray-700' }}">
-                            Clases Disponibles
-                        </button>
+                        </div>
+                        
                     </nav>
                 </div>
-
-                <!-- Tab Content -->
+                
                 <div class="p-6">
-                    <!-- Mis Clases Tab -->
-                    <div id="misClases" class="tab-content @if($activeTab !== 'misClases') hidden @endif">
+                    
+                    <div class="tab-content">
                         <livewire:profile.mis-clases />
-                    </div>
-
-                    <!-- Clases Disponibles Tab -->
-                    <div id="clasesDisponibles" class="tab-content @if($activeTab !== 'clasesDisponibles') hidden @endif">
-                        <livewire:profile.clases-disponibles />
                     </div>
                 </div>
             </div>
 
             
-            <div id="editProfileView" class="bg-white rounded-lg shadow-lg p-6 h-full @if(!$editingProfile) hidden @endif">
+            <div id="editProfileView" class="bg-white rounded-lg shadow-lg p-6 h-full @if(!$editandoPerfil) hidden @endif">
                 <div class="mb-6">
                     <h2 class="text-2xl font-bold text-gym-primary mb-2">Mi Perfil</h2>
                     <p class="text-gray-600">Gestiona tu información personal</p>
@@ -229,7 +201,7 @@
 
                 
                 <div class="mt-8 pt-6 border-t border-gray-200">
-                    <button wire:click="showProfileView" class="text-gym-secondary hover:text-gym-primary font-medium">
+                    <button wire:click="mostrarVistaPerfil" class="text-gym-secondary hover:text-gym-primary font-medium">
                         ← Volver al perfil
                     </button>
                 </div>

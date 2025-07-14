@@ -43,7 +43,7 @@ class MembresiaUsuarioController extends Controller
 
 
         return redirect()->route('settings.profile')
-        ->with('compro-membresia', 'Se proceso la compra de la membresía correctamente. Tu membresía estara activa desde ' . $fecha_inicio->locale('es')->translatedFormat('j \\d\\e F \\d\\e Y') . ' hasta ' . $fecha_fin->locale('es')->translatedFormat('j \\d\\e F \\d\\e Y') . '.');
+        ->with('compro-membresia', 'Se proceso la compra de la membresía correctamente. Tu membresía estará activa desde ' . $fecha_inicio->locale('es')->translatedFormat('j \\d\\e F \\d\\e Y') . ' hasta ' . $fecha_fin->locale('es')->translatedFormat('j \\d\\e F \\d\\e Y') . '.');
     }
 
 }

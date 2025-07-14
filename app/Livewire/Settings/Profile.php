@@ -31,9 +31,7 @@ class Profile extends Component
     //Envio  a la vista un array con los datos de la membresia del usuario, en caso de que no tenga membresia, lo dejo como null
     public $membresiaUsuario = null;
 
-    public bool $editingProfile = false;
-
-    public string $activeTab = 'misClases';
+    public bool $editandoPerfil = false;
 
     /**
      * Mount the component.
@@ -140,24 +138,21 @@ class Profile extends Component
     /**
      * Metodo para mostrar el contendido de edicion de usuario.
      */
-    public function showEditProfile(): void
+    public function mostrarEdicionPerfil(): void
     {
-        $this->editingProfile = true;
+        $this->editandoPerfil = true;
     }
 
     /**
      * Metodo para mostrar el contenido de vista de perfil.
      */
-    public function showProfileView(): void
+    public function mostrarVistaPerfil(): void
     {
-        $this->editingProfile = false;
+        $this->editandoPerfil = false;
     }
 
     /**
      * Change the active tab.
      */
-    public function showTab(string $tabName): void
-    {
-        $this->activeTab = $tabName;
-    }
+
 }
