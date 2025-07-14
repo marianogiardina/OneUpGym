@@ -114,8 +114,8 @@
                 </div>
 
                 
-                @if (session('status') === 'profile-updated')
-                    <x-alerts.success>{{ session('message', 'Perfil actualizado correctamente.') }}</x-alerts.success>
+                @if (session('success'))
+                    <x-alerts.success>{{ session('success') }}</x-alerts.success>
                 @endif
 
                 <div class="max-w-4xl">

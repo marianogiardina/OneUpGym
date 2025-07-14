@@ -92,8 +92,7 @@ class Profile extends Component
         $user->save();
 
         // Muestro mensaje de éxito
-        Session::flash('status', 'profile-updated');
-        Session::flash('message', 'Tu perfil ha sido actualizado exitosamente.');
+        session()->flash('success', 'Tu perfil ha sido actualizado exitosamente.');
 
         $this->dispatch('profile-updated', name: $user->name);
     }

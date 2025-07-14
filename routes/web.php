@@ -8,6 +8,7 @@ use App\Livewire\Settings\Profile;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClaseController;
+use App\Http\Controllers\ContactoController;
 
 //Devuelve la vista de inicio
 Route::get('/', function () {
@@ -108,6 +109,16 @@ Route::delete('profesores/{user}', [
     UserController::class,
     'destroy'
 ])->name('profesores.destroy');
+
+Route::get('contacto', [
+    ContactoController::class,
+    'index'
+])->name('contacto');
+
+Route::post('contacto', [
+    ContactoController::class,
+    'store'
+])->name('contacto.store');
 
 
 Route::middleware(['auth'])->group(function () {
