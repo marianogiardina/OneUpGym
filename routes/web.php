@@ -20,7 +20,7 @@ Route::get('membresias', [
 Route::view('dashboard', 'dashboard/index');
 
 Route::get('membresias',[
-    MembresiaController:: class, 
+    MembresiaController:: class,
     'index'
 ])->name('membresias.index');
 
@@ -107,6 +107,11 @@ Route::delete('profesores/{user}', [
     UserController::class,
     'destroy'
 ])->name('profesores.destroy');
+
+Route::get('calendario', [
+    ClaseController::class,
+    'index'
+])->name('calendario.index');
 
 
 

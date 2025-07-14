@@ -19,7 +19,8 @@ class Clase extends Model
     protected $fillable = [
         'nombre',
         'descripcion',
-        'fecha_hora_inicio',
+        'dia',
+        'hora',
         'cantidad_maxima_alumnos',
         'user_id', // ID del profesor
     ];

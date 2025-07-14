@@ -6,20 +6,27 @@ use App\Enums\RolEnum;
 use App\Models\Clase;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class ClaseController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $fechaSeleccionada = $request->input('fecha') ?? now()->toDateString();
+
+        $dia = Carbon::parse($fechaSeleccionada)->locale('es')->dayName;
+
+        $clases = Clase::where('dia', $dia)->orderBy('hora')->get();
+
+        return view('calendario.index', compact('clases', 'fechaSeleccionada'));
     }
 
     public function adminClases()
     {
-        $clases = Clase::select('id', 'nombre', 'descripcion','fecha_hora_inicio', 'cantidad_maxima_alumnos',  'user_id', 'created_at')
+        $clases = Clase::select('id', 'nombre', 'descripcion', 'dia', 'hora', 'cantidad_maxima_alumnos',  'user_id', 'created_at')
             ->orderBy('id', 'asc')
             ->paginate(5);
 
@@ -49,16 +56,19 @@ class ClaseController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'nullable|string|max:1000',
-            'fecha_hora_inicio' => 'required|date',
+            'dia' => 'required|in:lunes,martes,miércoles,jueves,viernes,sábado,domingo',
+            'hora' => 'required|date_format:H:i:s',
             'capacidad' => 'required|integer|min:1',
-            //Cambiar a required cuando se haga la relacion con profesores
-            'user_id' => 'nullable|exists:users,id',
+            'profesor_id' => 'nullable|exists:users,id',
         ]);
+
+        //dd($request->all());
 
         Clase::create([
             'nombre' => $request->input('nombre'),
             'descripcion' => $request->input('descripcion'),
-            'fecha_hora_inicio' => $request->input('fecha_hora_inicio'),
+            'dia' => $request->input('dia'),
+            'hora' => $request->input('hora'),
             'cantidad_maxima_alumnos' => $request->input('capacidad'),
             'user_id' => $request->input('profesor_id'),
         ]);
@@ -98,17 +108,19 @@ class ClaseController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'nullable|string|max:1000',
-            'fecha_hora_inicio' => 'required|date',
+            'dia' => 'required|in:lunes,martes,miércoles,jueves,viernes,sábado,domingo',
+            'hora' => 'required|date_format:H:i:s',
             'capacidad' => 'required|integer|min:1',
-            'user_id' => 'nullable|exists:users,id',
+            'profesor_id' => 'nullable|exists:users,id',
         ]);
 
         $clase->update([
-            'nombre' => $request->input('nombre'),
-            'descripcion' => $request->input('descripcion'),
-            'fecha_hora_inicio' => $request->input('fecha_hora_inicio'),
-            'cantidad_maxima_alumnos' => $request->input('capacidad'),
-            'user_id' => $request->input('profesor_id'),
+            'nombre' => $request->nombre,
+            'descripcion' => $request->descripcion,
+            'dia' => $request->dia,
+            'hora' => $request->hora,
+            'capacidad' => $request->capacidad,
+            'profesor_id' => $request->user_id,
         ]);
 
         return redirect()->route('dashboard.admin.clases')

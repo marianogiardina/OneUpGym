@@ -34,7 +34,15 @@ class DatabaseSeeder extends Seeder
 
         //Membresia::factory(33)->create();
 
-        Clase::factory(10)->create();
+        Clase::create([
+            'nombre' => 'Yoga',
+            'descripcion' => 'Clase de yoga para relajación',
+            'dia' => 'lunes',
+            'hora' => '18:00:00',
+            'cantidad_maxima_alumnos' => 20,
+            'user_id' => 1
+        ]);
 
+        //Clase::factory(10)->create();
     }
 }

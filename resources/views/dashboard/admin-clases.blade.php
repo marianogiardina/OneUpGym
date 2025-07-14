@@ -43,7 +43,7 @@
                                     Descripción
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Fecha y Hora
+                                    Dia y Hora
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Capacidad
@@ -70,7 +70,7 @@
                                         {{ $c->descripcion }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ $c->fecha_hora_inicio }}
+                                        {{ $c->dia }} {{ $c->hora }}
                                     </td>
                                     <td class="px-6 py-4">
                                         {{ $c->cantidad_maxima_alumnos }}
