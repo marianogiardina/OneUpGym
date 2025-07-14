@@ -24,7 +24,7 @@
         <div class="container mx-auto bg-white rounded-lg shadow-md space-y-6">
             <div class="bg-white p-6">
                 <h2 class="text-xl font-semibold text-gray-800 mb-4">
-                    {{ \Carbon\Carbon::parse($fechaSeleccionada)->translatedFormat('l, j \d\e F \d\e Y') }}
+                    {{ \Carbon\Carbon::parse($fechaSeleccionada)->locale('es')->translatedFormat('l, j \d\e F \d\e Y') }}
                 </h2>
 
                 @forelse($clases as $clase)
@@ -32,7 +32,8 @@
                         class="flex flex-col md:flex-row md:items-center justify-between border rounded p-4 mb-4 shadow-sm hover:bg-gray-100 cursor-pointer">
                         <div class="mb-2 md:mb-0">
                             <p class="text-lg font-semibold text-gray-800">
-                                {{ \Carbon\Carbon::parse($clase->fecha_hora_inicio)->format('H:i') }}
+
+                                {{ \Carbon\Carbon::createFromFormat('H:i:s', $clase->hora)->format('H:i') }}
                                 - {{ $clase->nombre }}
                             </p>
                             <p class="text-sm text-gray-600">{{ $clase->descripcion }}</p>
@@ -40,7 +41,7 @@
                         </div>
                         <span
                             class="text-sm px-3 py-1 rounded
-                        {{ $clase->cantidad_maxima_alumnos == 0 ? 'bg-gray-300 text-gray-700' : 'bg-green-100 text-green-600' }}">
+                    {{ $clase->cantidad_maxima_alumnos == 0 ? 'bg-gray-300 text-gray-700' : 'bg-green-100 text-green-600' }}">
                             {{ $clase->cantidad_maxima_alumnos == 0 ? 'Clase llena' : 'Disponible' }}
                         </span>
                     </div>

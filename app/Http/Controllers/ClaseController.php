@@ -63,6 +63,14 @@ class ClaseController extends Controller
         ]);
 
         //dd($request->all());
+        // Verificar si ya existe una clase en ese día y hora
+        $existe = Clase::where('dia', $request->dia)
+            ->where('hora', $request->hora)
+            ->exists();
+
+        if ($existe) {
+            return back()->withErrors(['hora' => 'Ya existe una clase en ese día y horario.'])->withInput();
+        }
 
         Clase::create([
             'nombre' => $request->input('nombre'),
@@ -114,13 +122,22 @@ class ClaseController extends Controller
             'profesor_id' => 'nullable|exists:users,id',
         ]);
 
+        $existe = Clase::where('dia', $request->dia)
+            ->where('hora', $request->hora)
+            ->where('id', '!=', $clase->id)
+            ->exists();
+
+        if ($existe) {
+            return back()->withErrors(['hora' => 'Ya existe una clase en ese día y horario.'])->withInput();
+        }
+
         $clase->update([
             'nombre' => $request->nombre,
             'descripcion' => $request->descripcion,
             'dia' => $request->dia,
             'hora' => $request->hora,
             'capacidad' => $request->capacidad,
-            'profesor_id' => $request->user_id,
+            'user_id' => $request->profesor_id,
         ]);
 
         return redirect()->route('dashboard.admin.clases')
