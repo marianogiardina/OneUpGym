@@ -2,22 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\RolEnum;
 use App\Models\Clase;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class ClaseController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $fechaSeleccionada = $request->input('fecha') ?? now()->toDateString();
+
+        $dia = Carbon::parse($fechaSeleccionada)->locale('es')->dayName;
+
+        $clases = Clase::where('dia', $dia)->orderBy('hora')->get();
+
+        return view('calendario.index', compact('clases', 'fechaSeleccionada'));
     }
 
     public function adminClases()
     {
-        $clases = Clase::select('id', 'nombre', 'descripcion','fecha_hora_inicio', 'cantidad_maxima_alumnos',  'profesor_id', 'created_at')
+        $clases = Clase::select('id', 'nombre', 'descripcion', 'dia', 'hora', 'cantidad_maxima_alumnos',  'user_id', 'created_at')
             ->orderBy('id', 'asc')
             ->paginate(5);
 
@@ -29,7 +38,13 @@ class ClaseController extends Controller
      */
     public function create()
     {
-        return view('clases.create');
+
+        $profesores = User::where('rol', RolEnum::PROFESOR->value)
+            ->select('id', 'name', 'lastname')
+            ->orderBy('name', 'asc')
+            ->get();
+
+        return view('clases.create', compact('profesores'));
     }
 
     /**
@@ -41,19 +56,31 @@ class ClaseController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'nullable|string|max:1000',
-            'fecha_hora_inicio' => 'required|date',
+            'dia' => 'required|in:lunes,martes,miércoles,jueves,viernes,sábado,domingo',
+            'hora' => 'required|date_format:H:i:s',
             'capacidad' => 'required|integer|min:1',
-            //Cambiar a required cuando se haga la relacion con profesores
             'profesor_id' => 'nullable|exists:users,id',
         ]);
+
+        //dd($request->all());
+        // Verificar si ya existe una clase en ese día y hora
+        $existe = Clase::where('dia', $request->dia)
+            ->where('hora', $request->hora)
+            ->exists();
+
+        if ($existe) {
+            return back()->withErrors(['hora' => 'Ya existe una clase en ese día y horario.'])->withInput();
+        }
 
         Clase::create([
             'nombre' => $request->input('nombre'),
             'descripcion' => $request->input('descripcion'),
-            'fecha_hora_inicio' => $request->input('fecha_hora_inicio'),
+            'dia' => $request->input('dia'),
+            'hora' => $request->input('hora'),
             'cantidad_maxima_alumnos' => $request->input('capacidad'),
-            'profesor_id' => $request->input('profesor_id'),
+            'user_id' => $request->input('profesor_id'),
         ]);
+
 
         return redirect()->route('dashboard.admin.clases')
             ->with('success', 'Clase creada exitosamente.');
@@ -72,7 +99,12 @@ class ClaseController extends Controller
      */
     public function edit(Clase $clase)
     {
-        return view("clases.edit", compact('clase'));
+        $profesores = User::where('rol', RolEnum::PROFESOR->value)
+            ->select('id', 'name', 'lastname')
+            ->orderBy('name', 'asc')
+            ->get();
+
+        return view("clases.edit", compact('clase', 'profesores'));
     }
 
     /**
@@ -84,18 +116,28 @@ class ClaseController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'nullable|string|max:1000',
-            'fecha_hora_inicio' => 'required|date',
+            'dia' => 'required|in:lunes,martes,miércoles,jueves,viernes,sábado,domingo',
+            'hora' => 'required|date_format:H:i:s',
             'capacidad' => 'required|integer|min:1',
-            //Cambiar a required cuando se haga la relacion con profesores
             'profesor_id' => 'nullable|exists:users,id',
         ]);
 
+        $existe = Clase::where('dia', $request->dia)
+            ->where('hora', $request->hora)
+            ->where('id', '!=', $clase->id)
+            ->exists();
+
+        if ($existe) {
+            return back()->withErrors(['hora' => 'Ya existe una clase en ese día y horario.'])->withInput();
+        }
+
         $clase->update([
-            'nombre' => $request->input('nombre'),
-            'descripcion' => $request->input('descripcion'),
-            'fecha_hora_inicio' => $request->input('fecha_hora_inicio'),
-            'cantidad_maxima_alumnos' => $request->input('capacidad'),
-            'profesor_id' => $request->input('profesor_id'),
+            'nombre' => $request->nombre,
+            'descripcion' => $request->descripcion,
+            'dia' => $request->dia,
+            'hora' => $request->hora,
+            'capacidad' => $request->capacidad,
+            'user_id' => $request->profesor_id,
         ]);
 
         return redirect()->route('dashboard.admin.clases')

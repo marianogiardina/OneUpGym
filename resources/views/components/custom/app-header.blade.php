@@ -13,7 +13,7 @@
                 <a href="clases.html" class="text-sm font-medium hover:text-gym-accent transition-colors">Clases</a>
 
                 @auth
-                    <a href="calendar.html"
+                    <a href="{{ route('calendario.index') }}"
                         class="text-sm font-medium hover:text-gym-accent transition-colors">Calendario</a>
                     <a href="{{ route('settings.profile') }}"
                         class="text-sm font-medium hover:text-gym-accent transition-colors">Mi perfil</a>
