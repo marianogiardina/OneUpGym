@@ -111,8 +111,7 @@ Route::delete('profesores/{user}', [
 Route::get('calendario', [
     ClaseController::class,
     'index'
-])->name('calendario.index');
-
+])->middleware('auth')->name('calendario.index');
 
 
 

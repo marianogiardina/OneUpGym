@@ -51,22 +51,26 @@
             </div>
         </div>
 
-        <!-- Información sobre clases -->
+        {{-- <!-- Información sobre clases -->
         <div class="container mx-auto p-10 lg:px-12 flex flex-col">
             <h2 class="text-2xl font-bold text-gym-primary mb-6">Información sobre las clases</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                @foreach ($clases->unique('nombre') as $clase)
-                    <div class="flex items-start">
-                        <div>
-                            <h3 class="font-semibold text-gym-primary mb-1">{{ $clase->nombre }}</h3>
-                            <p class="text-gray-600 text-sm">
-                                {{ $clase->descripcion ?? 'Descripción no disponible.' }}
-                            </p>
-                        </div>
-                    </div>
-                @endforeach
+
+            <div class="bg-white rounded-lg shadow-sm p-6">
+                <ul class="space-y-4">
+                    @foreach ($clases->unique('nombre') as $clase)
+                        <li class="flex items-start">
+                            <div class="mt-1 w-3 h-3 rounded-full bg-gym-primary mr-3 flex-shrink-0"></div>
+                            <div>
+                                <h3 class="text-base font-semibold text-gray-800">{{ $clase->nombre }}</h3>
+                                <p class="text-sm text-gray-600">
+                                    {{ $clase->descripcion ?? 'Descripción no disponible.' }}
+                                </p>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
-        </div>
+        </div> --}}
 
 
     </section>

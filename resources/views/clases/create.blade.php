@@ -54,7 +54,7 @@
             <div>
                 <label for="dia" class="block text-sm font-medium text-gray-700">Día</label>
                 <div>
-                    <select name="dia" id="dia" class="mt-1 block w-full rounded border-gray-300 shadow-sm">
+                    <select name="dia" id="dia"class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary">
                         @foreach (['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo'] as $dia)
                             <option value="{{ $dia }}">{{ ucfirst($dia) }}</option>
                         @endforeach

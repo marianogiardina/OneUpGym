@@ -52,39 +52,46 @@
 
 
 
-                 {{-- Dia de la clase  --}}
-            <div>
-                <label for="dia" class="block text-sm font-medium text-gray-700">Día</label>
+                {{-- Día de la clase --}}
                 <div>
-                    <select name="dia" id="dia" class="mt-1 block w-full rounded border-gray-300 shadow-sm">
-                        @foreach (['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo'] as $dia)
-                            <option value="{{ $dia }}">{{ ucfirst($dia) }}</option>
-                        @endforeach
-                    </select>
-                    @error('dia')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                    @enderror
+                    <label for="dia" class="block mb-1 text-sm font-semibold text-gray-700">Día</label>
+                    <div>
+                        <select name="dia" id="dia"
+                            class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary">
+                            @foreach (['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo'] as $dia)
+                                <option value="{{ $dia }}"
+                                    {{ old('dia', $clase->dia ?? '') === $dia ? 'selected' : '' }}>
+                                    {{ ucfirst($dia) }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('dia')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
                 </div>
-            </div>
 
 
-            {{-- Hora inicio --}}
-            <div>
-                <label for="fecha_hora_inicio" class="block mb-1 text-sm font-semibold text-gray-700">Hora de
-                    inicio</label>
+                {{-- Hora de inicio --}}
                 <div>
-                    <select name="hora" required class="border rounded p-2">
-                        @for ($h = 10; $h <= 20; $h++)
-                            <option value="{{ sprintf('%02d:00:00', $h) }}">
-                                {{ sprintf('%02d:00', $h) }}
-                            </option>
-                        @endfor
-                    </select>
-                    @error('hora')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                    @enderror
+                    <label for="hora" class="block mb-1 text-sm font-semibold text-gray-700">Hora de inicio</label>
+                    <div>
+                        <select name="hora" id="hora" required class="border rounded p-2">
+                            @for ($h = 10; $h <= 20; $h++)
+                                @php
+                                    $hora = sprintf('%02d:00:00', $h);
+                                @endphp
+                                <option value="{{ $hora }}"
+                                    {{ old('hora', $clase->hora ?? '') === $hora ? 'selected' : '' }}>
+                                    {{ sprintf('%02d:00', $h) }}
+                                </option>
+                            @endfor
+                        </select>
+                        @error('hora')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
                 </div>
-            </div>
 
 
                 {{-- Capacidad --}}
@@ -106,11 +113,13 @@
                     <select id="profesor" name="profesor_id"
                         class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary">
 
-                        <option value="" {{ old('profesor_id') ? '' : 'selected' }}>Sin asignar</option>
+                        <option value="" {{ old('profesor_id', $clase->user_id ?? '') == '' ? 'selected' : '' }}>
+                            Sin asignar
+                        </option>
 
                         @foreach ($profesores as $profesor)
                             <option value="{{ $profesor->id }}"
-                                {{ old('profesor_id') == $profesor->id ? 'selected' : '' }}>
+                                {{ old('profesor_id', $clase->user_id ?? '') == $profesor->id ? 'selected' : '' }}>
                                 {{ $profesor->name }} {{ $profesor->lastname }}
                             </option>
                         @endforeach
