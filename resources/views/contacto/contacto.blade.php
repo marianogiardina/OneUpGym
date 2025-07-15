@@ -31,7 +31,7 @@
                                 <label for="nombre" class="block text-sm font-medium text-gym-primary mb-2">
                                     Nombre 
                                 </label>
-                                <input type="text" id="nombre" name="nombre" required
+                                <input type="text" id="nombre" name="nombre" required value="{{ old('nombre') }}"
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gym-accent focus:border-gym-accent transition-colors"
                                     placeholder="Tu nombre"
                                 />
@@ -44,7 +44,7 @@
                                 <label for="apellido" class="block text-sm font-medium text-gym-primary mb-2">
                                     Apellido 
                                 </label>
-                                <input type="text" id="apellido" name="apellido" required
+                                <input type="text" id="apellido" name="apellido" required value="{{ old('apellido') }}"
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gym-accent focus:border-gym-accent transition-colors"
                                     placeholder="Tu apellido"
                                 />
@@ -58,7 +58,7 @@
                             <label for="mail" class="block text-sm font-medium text-gym-primary mb-2">
                                 Mail 
                             </label>
-                            <input type="email"  name="mail" required
+                            <input type="email"  name="mail" required value="{{ old('mail') }}"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gym-accent focus:border-gym-accent transition-colors"
                                 placeholder="tu@mail.com"
                             />
@@ -71,7 +71,7 @@
                             <label for="celular" class="block text-sm font-medium text-gym-primary mb-2">
                                 Celular
                             </label>
-                            <input type="tel"  name="celular"
+                            <input type="tel"  name="celular" value="{{ old('celular') }}"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gym-accent focus:border-gym-accent transition-colors"
                                 placeholder="+54 11 1234-5678"
                             />
@@ -84,7 +84,7 @@
                             <label for="asunto" class="block text-sm font-medium text-gym-primary mb-2">
                                 Asunto 
                             </label>
-                            <select  name="asunto" required
+                            <select  name="asunto" required value="{{ old('asunto') }}"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gym-accent focus:border-gym-accent transition-colors">
                                 <option value="">Selecciona un asunto</option>
                                 <option value="membership">Información sobre membresías</option>
@@ -101,7 +101,7 @@
                             <label for="mensaje" class="block text-sm font-medium text-gym-primary mb-2">
                                 Mensaje 
                             </label>
-                            <textarea id="mensaje" name="mensaje" rows="5" required
+                            <textarea id="mensaje" name="mensaje" rows="5" required value="{{ old('mensaje') }}"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gym-accent focus:border-gym-accent transition-colors resize-none"
                                 placeholder="Cuéntanos cómo podemos ayudarte...">
                             </textarea>
