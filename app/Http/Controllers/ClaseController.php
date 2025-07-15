@@ -136,7 +136,7 @@ class ClaseController extends Controller
             'descripcion' => $request->descripcion,
             'dia' => $request->dia,
             'hora' => $request->hora,
-            'capacidad' => $request->capacidad,
+            'cantidad_maxima_alumnos' => $request->capacidad,
             'user_id' => $request->profesor_id,
         ]);
 
