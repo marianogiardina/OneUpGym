@@ -154,4 +154,13 @@ class ClaseController extends Controller
         return redirect()->route('dashboard.admin.clases')
             ->with('success', 'Clase eliminada exitosamente.');
     }
+
+    public function mostrarClases()
+    {
+        $clases = Clase::
+            orderBy('id', 'asc')
+            ->paginate(5);
+
+        return view('clases-usuarios.clases', compact('clases'));
+    }
 }

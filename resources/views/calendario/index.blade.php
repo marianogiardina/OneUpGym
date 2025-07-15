@@ -33,7 +33,7 @@
                         <div class="mb-2 md:mb-0">
                             <p class="text-lg font-semibold text-gray-800">
 
-                                {{ \Carbon\Carbon::createFromFormat('H:i:s', $clase->hora)->format('H:i') }}
+                                {{ $clase->hora->format('H:i') }}
                                 - {{ $clase->nombre }}
                             </p>
                             <p class="text-sm text-gray-600">{{ $clase->descripcion }}</p>

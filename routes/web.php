@@ -115,6 +115,9 @@ Route::get('calendario', [
     'index'
 ])->middleware('auth')->name('calendario.index');
 
+Route::view('clases', 'clases-usuarios.clases')
+    ->name('clases');
+
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');

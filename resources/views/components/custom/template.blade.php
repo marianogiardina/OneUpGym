@@ -11,5 +11,5 @@
     </main>
 
     <x-custom.app-footer />
-
+    
 </body>

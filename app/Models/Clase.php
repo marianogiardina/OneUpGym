@@ -24,4 +24,8 @@ class Clase extends Model
         'cantidad_maxima_alumnos',
         'user_id', // ID del profesor
     ];
+
+    protected $casts = [
+        'hora' => 'datetime:H:i:s',
+    ];
 }

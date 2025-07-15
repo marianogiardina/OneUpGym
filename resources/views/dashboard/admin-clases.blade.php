@@ -64,7 +64,7 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ ucfirst($c->dia) }}
-                                    {{ \Carbon\Carbon::createFromFormat('H:i:s', $c->hora)->format('H:i') }} hs
+                                    {{ $c->hora->format('H') }} hs
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $c->cantidad_maxima_alumnos }} Personas
