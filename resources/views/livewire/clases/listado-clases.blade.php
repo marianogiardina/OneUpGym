@@ -26,7 +26,7 @@
                             <p class="text-gray-600 mb-4">
                                 {{$clase->descripcion}}
                             </p>
-                            <div class="bg-teal-50 rounded-lg p-4">
+                            <div class="bg-teal-50 rounded-lg p-4 mb-4">
                                 <div class="flex items-center justify-between">
                                     <div>
                                         <p class="text-sm font-semibold text-teal-800">Horarios de clase</p>
@@ -38,6 +38,15 @@
                                     </div>
                                 </div>
                             </div>
+                            @auth
+                                <button class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2">
+                                    Inscribirse a la clase
+                                </button>
+                            @else
+                                <a href="{{route('login')}}" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 block text-center">
+                                    Inicia sesión para inscribirte
+                                </a>
+                            @endauth
                         </div>
                     </div>
 
