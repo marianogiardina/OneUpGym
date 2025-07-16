@@ -1,10 +1,31 @@
-# Final Produccion Web - OneUp GYM - Saracco Juan - Giardina Monti Mariano
+# Final Produccion Web - OneUp GYM
 
-**Transforma tu vida en OneUp GYM** - El sitio web que conecta a nuestros miembros con la mejor experiencia fitness de la ciudad.
+**Saracco Juan - Giardina Monti Mariano**
 
-## 🏋️ ¿Por qué OneUp GYM?
+## Flujo de programa
 
-OneUp GYM no es solo un gimnasio, es tu compañero en la transformación personal. Nuestro sitio web refleja nuestro compromiso con la excelencia, ofreciendo una experiencia digital tan excepcional como nuestras instalaciones físicas.
+**Como cliente**
+
+    - Entrando a la web, se podran ver las clases y membresias, entrando a sus respectivas pestañas desde el menu de navegacion (header).
+    
+    - Sin estar registrado, ni logeado no se podran realizar mas acciones que esas, ver lo que ofrece el gimnasio.
+    
+    - Luego desde el header se podra registrar o iniciar sesion(si ya esta registrado).
+    
+    - Una vez incidada la sesion tendra acceso a las demas funcionalidades.
+        - Pagar una membresia.
+        - Enviar un mensaje desde la pestaña de contacto.
+        - Consultar que dias, horarios y que profesores dictan las distintas clases desde la pestaña de calendario.
+        - Inscribirse a las distintas clases (es necesario tener una membresia activa).
+        - Ver sus datos de membresia, que clases esta inscripto, actualizar sus datos de registro y modificar su contraseña desde la seccion "Mi perfil".
+
+**Como administrador**
+
+    - Los administradores, a traves desde el dashboard de administrador, podran:
+        - Crear, eliminar y editar clases.
+        - Asignar un profesor a dicha clase.
+        - Crear un profesor, editar sus datos y eliminarlo.
+        - Crear un cliente, editarlo y eliminarlo.
 
 ## 🚀 OneUp GYM - Más que un Gimnasio
 
