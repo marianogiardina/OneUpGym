@@ -67,8 +67,8 @@
                                 {{ $clase->hora->format('H:i') }}
                                 - {{ $clase->nombre }}
                             </p>
-                            <p class="text-sm text-gray-600">{{ $clase->descripcion }}</p>
-                            <p class="text-sm text-gray-600">Máx. Alumnos: {{ $clase->cantidad_maxima_alumnos }}</p>
+                            <p class="text-sm text-gray-600">▪ Profesor: {{ $clase->user->name }} {{ $clase->user->lastname }}</p>
+                            <p class="text-sm text-gray-600">▪ Máx. Alumnos: {{ $clase->cantidad_maxima_alumnos }}</p>
                         </div>
                         <div class="flex items-center space-x-4 mt-4 md:mt-0">
                             <div class="text-right">
