@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Settings;
 
-use App\Models\MembresiaUsuario;
+use App\Enums\RolEnum; 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -26,7 +26,11 @@ class Profile extends Component
 
     public string $altura = '';
 
-    public $createdAt = '';
+    public $rol = '';
+
+    public bool $profesor = false;
+
+    public $createdAt;
 
     //Envio  a la vista un array con los datos de la membresia del usuario, en caso de que no tenga membresia, lo dejo como null
     public $membresiaUsuario = null;
@@ -46,12 +50,22 @@ class Profile extends Component
         $this->celular = Auth::user()->celular;
         $this->peso = Auth::user()->peso ?? ""; 
         $this->altura = Auth::user()->altura ?? ""; 
+        $this->rol = Auth::user()->rol;
+        //Le envio a la vista el boolean si el usuario es profesor o no
+        $this->profesor = Auth::user()->rol === RolEnum::PROFESOR;
         $this->createdAt = Auth::user()->created_at;
 
         //Envio a la vista la membresia del usuario con sus datos
         $this->membresiaUsuario = Auth::user()->membresiaUsuario;
 
-        $this->clases = Auth::user()->clases; 
+        //Envio las clases dependiendo si es profesor o no
+
+        if($this->profesor) {
+            
+            $this->clases = Auth::user()->clasesProfesor;
+        } else {
+            $this->clases = Auth::user()->clases;
+        } 
 
     }
 

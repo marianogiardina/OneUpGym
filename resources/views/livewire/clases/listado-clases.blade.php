@@ -34,7 +34,11 @@
                                 </div>
                             </div>
                             @auth
-                                <livewire:btn-inscripcion :clase="$clase" :key="'btn-inscripcion-' . $clase->id" />
+                                @if (auth()->user()->rol !== App\Enums\RolEnum::PROFESOR)
+                                
+                                    <livewire:btn-inscripcion :clase="$clase" :key="'btn-inscripcion-' . $clase->id" />
+
+                                @endif
                             @endauth
                         </div>
                     </div>

@@ -27,7 +27,13 @@
                     </div>
                     <h3 class="text-xl font-semibold text-gym-primary">{{$name ." ". $lastname}}</h3>
                     
-                    @if ($membresiaUsuario && $membresiaUsuario->membresiaActiva())
+                    @if($profesor)
+
+                        <span class="inline-block bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-medium mt-2">
+                            Profesor
+                        </span>
+
+                    @elseif ($membresiaUsuario && $membresiaUsuario->membresiaActiva())
                         <span class="inline-block bg-gym-accent text-gym-primary px-3 py-1 rounded-full text-sm font-medium mt-2">
                             Activo
                         </span>
@@ -47,17 +53,22 @@
                         <p class="font-medium">{{$email}}</p>
                     </div>
                     <div>
-                        <p class="text-sm text-gray-600">Miembro desde</p>
+                        <p class="text-sm text-gray-600">{{$profesor ? 'Profesor desde' : 'Miembro desde'}}</p>
                         <p class="font-medium">{{$createdAt->locale('es')->translatedFormat('j \\d\\e F \\d\\e Y')}}</p>
                     </div>
-                    <div>
-                        <p class="text-sm text-gray-600">Membresía</p>
-                        <p class="font-medium">{{($membresiaUsuario) ? ucfirst($membresiaUsuario->membresia->tipo) : 'Sin membresia'}}</p>
-                    </div>
-                    <div>
-                        <p class="text-sm text-gray-600">Fecha de vencimiento</p>
-                        <p class="font-medium">{{ $membresiaUsuario ? $membresiaUsuario->fecha_fin->locale('es')->translatedFormat('j \\d\\e F \\d\\e Y') : 'Sin membresía' }}</p>
-                    </div>
+
+                    @if (!$profesor)
+                    
+                        <div>
+                            <p class="text-sm text-gray-600">Membresía</p>
+                            <p class="font-medium">{{($membresiaUsuario) ? ucfirst($membresiaUsuario->membresia->tipo) : 'Sin membresia'}}</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600">Fecha de vencimiento</p>
+                            <p class="font-medium">{{ $membresiaUsuario ? $membresiaUsuario->fecha_fin->locale('es')->translatedFormat('j \\d\\e F \\d\\e Y') : 'Sin membresía' }}</p>
+                        </div>
+                    @endif
+
                 </div>
 
                 
@@ -85,15 +96,23 @@
                             <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                             </svg>
-                            <span class="text-sm">Clases Inscriptas</span>
+                            <span class="text-sm">{{$profesor ? 'Clases programadas' : 'Clases inscriptas'}}</span>
                         </div>
-                        <span class="bg-blue-600 text-white px-2 py-1 rounded-full text-sm font-bold">{{$clases->count() >= 0 ? $clases->count() : 'No estas inscripto a ninguna clase'}}</span>
+
+                        @if ($profesor)
+
+                            <span class="bg-blue-600 text-white px-2 py-1 rounded-full text-sm font-bold">{{$clases->count()}}</span>
+
+                        @else
+
+                            <span class="bg-blue-600 text-white px-2 py-1 rounded-full text-sm font-bold">{{$clases->count()}}</span>
+                        
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
 
-        
         <div class="lg:col-span-3">
             
             <div id="profileView" class="bg-white rounded-lg shadow-lg h-full @if($editandoPerfil) hidden @endif">
@@ -115,6 +134,7 @@
                 </div>
             </div>
 
+            {{-- Edicion de perfil --}}
             
             <div id="editProfileView" class="bg-white rounded-lg shadow-lg p-6 h-full @if(!$editandoPerfil) hidden @endif">
                 <div class="mb-6">
