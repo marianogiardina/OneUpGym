@@ -21,7 +21,7 @@
 
 **Como administrador**
 
-    - Los administradores, a traves desde el dashboard de administrador, podran:
+    - Los administradores, a traves del dashboard de administrador, podran:
         - Crear, eliminar y editar clases.
         - Asignar un profesor a dicha clase.
         - Crear un profesor, editar sus datos y eliminarlo.
