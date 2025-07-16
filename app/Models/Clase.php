@@ -24,4 +24,25 @@ class Clase extends Model
         'cantidad_maxima_alumnos',
         'user_id', // ID del profesor
     ];
+
+    protected $casts = [
+        'hora' => 'datetime:H:i:s',
+    ];
+
+    public function inscriptos()
+    {
+        return $this->belongsToMany(
+            User::class, 
+            'clase_usuarios', 
+            'clase_id', 
+            'usuario_id' 
+            
+        );
+    }
+
+    public function estaCompleta(): bool
+    {
+        return $this->inscriptos()->count() >= $this->cantidad_maxima_alumnos;
+    }
+
 }

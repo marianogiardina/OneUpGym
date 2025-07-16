@@ -96,13 +96,13 @@
 
                 {{-- Capacidad --}}
                 <div>
-                    <label for="capacidad" class="block mb-1 text-sm font-semibold text-gray-700">Cantidad maxima de
+                    <label for="cantidad_maxima_alumnos" class="block mb-1 text-sm font-semibold text-gray-700">Cantidad maxima de
                         alumnos</label>
-                    <input type="number" id="capacidad" name="capacidad"
-                        value="{{ old('capacidad', $clase->cantidad_maxima_alumnos) }}" min="1"
+                    <input type="number" id="cantidad_maxima_alumnos" name="cantidad_maxima_alumnos"
+                        value="{{ old('cantidad_maxima_alumnos', $clase->cantidad_maxima_alumnos) }}" min="1"
                         class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gym-primary"
                         placeholder="7">
-                    @error('capacidad')
+                    @error('cantidad_maxima_alumnos')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
                 </div>

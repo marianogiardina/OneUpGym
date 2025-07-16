@@ -2,7 +2,7 @@
 
 <x-custom.head>{{ $title }}</x-custom.head>
 
-<body class="bg-gym-bg min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col">
 
     <x-custom.app-header />
 

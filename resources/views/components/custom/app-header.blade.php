@@ -10,7 +10,7 @@
             <nav class="hidden md:flex items-center space-x-6">
                 <a href="{{ route('home') }}"
                     class="text-sm font-medium hover:text-gym-accent transition-colors">Inicio</a>
-                <a href="clases.html" class="text-sm font-medium hover:text-gym-accent transition-colors">Clases</a>
+                <a href="{{route('clases')}}" class="text-sm font-medium hover:text-gym-accent transition-colors">Clases</a>
 
                 @auth
 

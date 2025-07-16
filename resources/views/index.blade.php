@@ -12,7 +12,7 @@
                     Ofrecemos las mejores instalaciones y clases con profesionales certificados para ayudarte a alcanzar tus objetivos fitness.
                 </p>
 
-                <a href="clases.html" class="bg-gym-accent hover:bg-gym-accent-dark text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl">
+                <a href="{{route('clases')}}" class="bg-gym-accent hover:bg-gym-accent-dark text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl">
                     Ver clases
                 </a>
             </div>

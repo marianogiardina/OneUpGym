@@ -52,7 +52,7 @@ class User extends Authenticatable
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
-     */
+    */
     protected function casts(): array
     {
         return [
@@ -65,7 +65,7 @@ class User extends Authenticatable
 
     /**
      * Get the user's initials
-     */
+    */
     public function initials(): string
     {
         return Str::of($this->name)
@@ -76,9 +76,22 @@ class User extends Authenticatable
 
     /**
      * Con este metodo relaciono el usuario con su membresia. Con esto puedo acceder a la membresia del usuario desde el modelo User.
-     */
+    */
     public function membresiaUsuario()
     {
         return $this->hasOne(MembresiaUsuario::class);
+    }
+
+    /**
+     * Relaciona el usuario con las clases a las que se inscribio.
+    */
+
+    public function clases()
+    {
+        return $this->belongsToMany(Clase::class,
+            'clase_usuarios', 
+            'usuario_id', 
+            'clase_id' 
+        );
     }
 }
