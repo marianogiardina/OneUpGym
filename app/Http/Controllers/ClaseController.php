@@ -118,7 +118,7 @@ class ClaseController extends Controller
             'descripcion' => 'nullable|string|max:1000',
             'dia' => 'required|in:lunes,martes,miércoles,jueves,viernes,sábado,domingo',
             'hora' => 'required|date_format:H:i:s',
-            'capacidad' => 'required|integer|min:1',
+            'cantidad_maxima_alumnos' => 'required|integer|min:1',
             'profesor_id' => 'nullable|exists:users,id',
         ]);
 
@@ -136,7 +136,7 @@ class ClaseController extends Controller
             'descripcion' => $request->descripcion,
             'dia' => $request->dia,
             'hora' => $request->hora,
-            'capacidad' => $request->capacidad,
+            'cantidad_maxima_alumnos' => $request->cantidad_maxima_alumnos,
             'user_id' => $request->profesor_id,
         ]);
 

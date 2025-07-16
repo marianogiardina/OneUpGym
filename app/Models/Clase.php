@@ -28,4 +28,26 @@ class Clase extends Model
     protected $casts = [
         'hora' => 'datetime:H:i:s',
     ];
+
+    public function inscriptos()
+    {
+        return $this->belongsToMany(
+            User::class, 
+            'clase_usuarios', 
+            'clase_id', 
+            'usuario_id' 
+            
+        );
+    }
+
+    public function estaCompleta(): bool
+    {
+        return $this->inscriptos()->count() >= $this->cantidad_maxima_alumnos;
+    }
+
+    public function lugaresDisponibles(): int
+    {
+        return $this->cantidad_maxima_alumnos - $this->inscriptos()->count();
+    }
+
 }

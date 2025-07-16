@@ -39,11 +39,20 @@
                             <p class="text-sm text-gray-600">{{ $clase->descripcion }}</p>
                             <p class="text-sm text-gray-600">Máx. Alumnos: {{ $clase->cantidad_maxima_alumnos }}</p>
                         </div>
-                        <span
+                        <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                            <div class="text-right">
+                                <p class="text-sm text-gray-600">{{$clase->inscriptos->count()}}/{{$clase->cantidad_maxima_alumnos }} lugares</p>
+                                <div class="w-24 bg-gray-200 rounded-full h-2 mt-1">
+                                    <div class="bg-gym-primary h-2 rounded-full" style="width: {{$clase->inscriptos->count()*100/$clase->cantidad_maxima_alumnos}}%"></div>
+                                </div>
+                            </div>
+                            <livewire:btn-inscripcion :clase="$clase" />
+                        </div>
+                        {{-- <span
                             class="text-sm px-3 py-1 rounded
-                    {{ $clase->cantidad_maxima_alumnos == 0 ? 'bg-gray-300 text-gray-700' : 'bg-green-100 text-green-600' }}">
+                            {{ $clase->cantidad_maxima_alumnos == 0 ? 'bg-gray-300 text-gray-700' : 'bg-green-100 text-green-600' }}">
                             {{ $clase->cantidad_maxima_alumnos == 0 ? 'Clase llena' : 'Disponible' }}
-                        </span>
+                        </span> --}}
                     </div>
                 @empty
                     <p class="text-gray-500">No hay clases disponibles para esta fecha.</p>

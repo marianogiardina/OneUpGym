@@ -10,12 +10,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 @foreach ($clases as $clase )
                 
-                    <div
-                        class="bg-white rounded-lg shadow-xl overflow-hidden group hover:shadow-2xl transition-shadow duration-300">
-                        {{-- <div
-                            class="relative h-64 bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center">
-                            <img src="./imgs/natacion.jpg" alt="Natación" class="w-full h-full object-cover">
-                        </div> --}}
+                    <div class="bg-white rounded-lg shadow-xl overflow-hidden group hover:shadow-2xl transition-shadow duration-300">
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-4">
                                 <h3 class="text-2xl font-bold text-teal-700">{{$clase->nombre}}</h3>
@@ -39,13 +34,7 @@
                                 </div>
                             </div>
                             @auth
-                                <button class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2">
-                                    Inscribirse a la clase
-                                </button>
-                            @else
-                                <a href="{{route('login')}}" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 block text-center">
-                                    Inicia sesión para inscribirte
-                                </a>
+                                <livewire:btn-inscripcion :clase="$clase" :key="'btn-inscripcion-' . $clase->id" />
                             @endauth
                         </div>
                     </div>
