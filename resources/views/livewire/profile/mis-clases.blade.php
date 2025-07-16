@@ -1,12 +1,14 @@
 <div>
     <div class="mb-6">
         <h2 class="text-2xl font-bold text-gym-primary mb-2">Mis Clases</h2>
-        <p class="text-gray-600">Clases a las que estás inscripto</p>
+        <p class="text-gray-600">
+            {{ $profesor ? 'Proximas clases' : 'Clases a las que estás inscripto' }}
+        </p>
     </div>
 
     <div class="space-y-6">
         @if ($clasesUsuario->isEmpty())
-            <p class="text-gray-500">No tienes clases inscriptas.</p>
+            <p class="text-gray-500">{{ $profesor ? 'No tienes clases asignadas por el momento' : 'No tienes clases inscriptas' }}</p>
         @else
             {{$clasesUsuario->links()}}
             @foreach ($clasesUsuario as $clase)
@@ -15,7 +17,11 @@
                         <div>
                             <h3 class="text-xl font-semibold text-gym-primary mb-2">{{$clase->nombre}}</h3>
                         </div>
-                        <livewire:btn-inscripcion :clase="$clase" :key="'btn-inscripcion-' . $clase->id" />
+                        @if (!$profesor)
+                        
+                            <livewire:btn-inscripcion :clase="$clase" :key="'btn-inscripcion-' . $clase->id" />
+
+                        @endif
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
@@ -43,11 +49,15 @@
                             {{$clase->inscriptos->count()}}/{{$clase->cantidad_maxima_alumnos }} cupos
                         </div>
                     </div>
-                    <div class="mt-4 pt-4 border-t border-gray-100">
-                        <p class="text-sm text-gray-600">
-                            <span class="font-medium">Profesor:</span> {{$clase->user->name}}{{" ".$clase->user->lastname}}
-                        </p>
-                    </div>
+                    @if (!$profesor)
+                    
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <p class="text-sm text-gray-600">
+                                <span class="font-medium">Profesor:</span> {{$clase->user->name}}{{" ".$clase->user->lastname}}
+                            </p>
+                        </div>
+                        
+                    @endif
                 </div>
             @endforeach
         @endif

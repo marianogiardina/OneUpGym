@@ -82,6 +82,11 @@ class User extends Authenticatable
         return $this->hasOne(MembresiaUsuario::class);
     }
 
+    public function clasesProfesor()
+{
+    return $this->hasMany(Clase::class, 'user_id');
+}
+
     /**
      * Relaciona el usuario con las clases a las que se inscribio.
     */

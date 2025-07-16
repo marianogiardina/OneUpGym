@@ -77,7 +77,13 @@
                                     <div class="bg-gym-primary h-2 rounded-full" style="width: {{$clase->inscriptos->count()*100/$clase->cantidad_maxima_alumnos}}%"></div>
                                 </div>
                             </div>
-                            <livewire:btn-inscripcion :clase="$clase" />
+
+                            @if (auth()->user()->rol !== App\Enums\RolEnum::PROFESOR)
+                            
+                                <livewire:btn-inscripcion :clase="$clase" />
+                                
+                            @endif
+
                         </div>
                     </div>
                 @empty
