@@ -13,8 +13,6 @@ class ListadoClases extends Component
 
     public $busqueda;
 
-    //protected $paginationTheme = "tailwind";
-
 
     public function mount()
     {

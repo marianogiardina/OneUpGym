@@ -78,7 +78,7 @@
                             </svg>
                             <span class="text-sm">Clases Inscriptas</span>
                         </div>
-                        <span class="bg-blue-600 text-white px-2 py-1 rounded-full text-sm font-bold">3</span>
+                        <span class="bg-blue-600 text-white px-2 py-1 rounded-full text-sm font-bold">{{$clases->count() >= 0 ? $clases->count() : 'No estas inscripto a ninguna clase'}}</span>
                     </div>
                 </div>
             </div>

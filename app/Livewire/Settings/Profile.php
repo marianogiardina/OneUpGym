@@ -31,6 +31,8 @@ class Profile extends Component
     //Envio  a la vista un array con los datos de la membresia del usuario, en caso de que no tenga membresia, lo dejo como null
     public $membresiaUsuario = null;
 
+    public $clases = null;
+
     public bool $editandoPerfil = false;
 
     /**
@@ -42,12 +44,14 @@ class Profile extends Component
         $this->lastname = Auth::user()->lastname;
         $this->email = Auth::user()->email;
         $this->celular = Auth::user()->celular;
-        $this->peso = Auth::user()->peso ?? ""; // Inicializa en string vacio si es null
-        $this->altura = Auth::user()->altura ?? ""; // Inicializa en string vacio si es null
+        $this->peso = Auth::user()->peso ?? ""; 
+        $this->altura = Auth::user()->altura ?? ""; 
         $this->createdAt = Auth::user()->created_at;
 
         //Envio a la vista la membresia del usuario con sus datos
         $this->membresiaUsuario = Auth::user()->membresiaUsuario;
+
+        $this->clases = Auth::user()->clases; 
 
     }
 
@@ -79,7 +83,7 @@ class Profile extends Component
             'altura' => ['nullable', 'numeric', 'min:100', 'max:250'], // Altura del usuario, opcional
         ]);
 
-        // Convertir string vacios a null en campos opcionales para que lo acepte la bbdd
+        // Convierto string vacios a null en campos opcionales para que lo acepte la bbdd
         $validated['peso'] = empty($validated['peso']) ? null : $validated['peso'];
         $validated['altura'] = empty($validated['altura']) ? null : $validated['altura'];
 

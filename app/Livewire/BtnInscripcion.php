@@ -18,6 +18,14 @@ class BtnInscripcion extends Component
     {
         $user = auth()->user();
 
+        if($user->membresiaUsuario == null) {
+            session()->flash('error', 'Debes tener una membresía activa para inscribirte a clases.');
+            return;
+        }elseif (!$user->membresiaUsuario->membresiaActiva()) {
+            session()->flash('error', 'Tu membresia no está activa. Por favor, renueva tu membresia para inscribirte a clases.');
+            return;
+        }
+
         $user->clases()->attach($claseId);
         session()->flash('success', 'Te inscribiste correctamente en la clase.');
     }

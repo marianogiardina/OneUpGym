@@ -3,6 +3,10 @@
     <x-alerts.success>{{ session('success') }}</x-alerts.success>
 @endif  
 
+@if (session('error'))
+    <x-alerts.error>{{ session('error') }}</x-alerts.error>
+@endif  
+
 <div>
     @if (auth()->user()->clases->contains($clase))
         <button wire:click="darDeBajaInscripcion({{$clase->id}})" class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">

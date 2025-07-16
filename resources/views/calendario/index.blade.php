@@ -1,4 +1,4 @@
-<x-custom.template>
+<x-custom.template-white title="Calendario de Clases - OneUp Gym">
 
     <section class="p-14">
 
@@ -41,7 +41,7 @@
                         </div>
                         <div class="flex items-center space-x-4 mt-4 md:mt-0">
                             <div class="text-right">
-                                <p class="text-sm text-gray-600">{{$clase->inscriptos->count()}}/{{$clase->cantidad_maxima_alumnos }} lugares</p>
+                                <p class="text-sm text-gray-600">{{$clase->inscriptos->count()}}/{{$clase->cantidad_maxima_alumnos }} cupos</p>
                                 <div class="w-24 bg-gray-200 rounded-full h-2 mt-1">
                                     <div class="bg-gym-primary h-2 rounded-full" style="width: {{$clase->inscriptos->count()*100/$clase->cantidad_maxima_alumnos}}%"></div>
                                 </div>
@@ -85,4 +85,4 @@
     </section>
 
 
-</x-custom.template>
+</x-custom.template-white>

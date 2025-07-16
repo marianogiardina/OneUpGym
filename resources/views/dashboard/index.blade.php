@@ -1,6 +1,6 @@
 {{-- Layout del dashboard --}}
 
-<x-custom.template>
+<x-custom.template-white>
 
     <section class="min-h-1000 gym-bg flex pt-20 px-10">
         <div class="container mx-auto lg:px-12 p-10 py-0">
@@ -29,4 +29,4 @@
 
 
 
-</x-custom.template>
+</x-custom.template-white>

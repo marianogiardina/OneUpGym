@@ -45,9 +45,4 @@ class Clase extends Model
         return $this->inscriptos()->count() >= $this->cantidad_maxima_alumnos;
     }
 
-    public function lugaresDisponibles(): int
-    {
-        return $this->cantidad_maxima_alumnos - $this->inscriptos()->count();
-    }
-
 }
