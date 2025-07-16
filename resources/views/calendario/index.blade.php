@@ -9,14 +9,45 @@
                 <p class="text-gray-600">Consulta nuestras clases disponibles y reserva tu lugar</p>
             </div>
             <div class="mt-4 md:mt-0">
-                <form method="GET">
-                    <input type="date" name="fecha" value="{{ $fechaSeleccionada }}"
-                        class="border rounded p-2 text-sm">
-                    <button type="submit"
-                        class="ml-2 bg-gym-primary hover:bg-gym-primary-dark text-white px-4 py-2 rounded text-sm">
-                        Buscar
-                    </button>
-                </form>
+
+
+                @php
+                    $fechaCarbon = \Carbon\Carbon::parse($fechaSeleccionada);
+                    $prev = $fechaCarbon->copy()->subDay()->toDateString();
+                    $next = $fechaCarbon->copy()->addDay()->toDateString();
+                @endphp
+
+                <div class="flex items-center justify-center gap-2 mt-4">
+                    <!-- Flecha anterior -->
+                    <a href="{{ route('calendario.index', ['fecha' => $prev]) }}"
+                        class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" class="w-5 h-5 text-gym-primary">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </a>
+
+                    <!-- Formulario de fecha -->
+                    <form method="GET" class="flex items-center gap-2 my-0">
+                        <input type="date" name="fecha" value="{{ $fechaSeleccionada }}"
+                            class="border rounded p-2 text-sm">
+                        <button type="submit"
+                            class="bg-gym-primary hover:bg-gym-secondary text-white px-4 py-2 rounded text-sm">
+                            Buscar
+                        </button>
+                    </form>
+
+                    <!-- Flecha siguiente -->
+                    <a href="{{ route('calendario.index', ['fecha' => $next]) }}"
+                        class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" class="w-5 h-5 text-gym-primary">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+
             </div>
         </div>
 
