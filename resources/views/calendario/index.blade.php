@@ -79,11 +79,6 @@
                             </div>
                             <livewire:btn-inscripcion :clase="$clase" />
                         </div>
-                        {{-- <span
-                            class="text-sm px-3 py-1 rounded
-                            {{ $clase->cantidad_maxima_alumnos == 0 ? 'bg-gray-300 text-gray-700' : 'bg-green-100 text-green-600' }}">
-                            {{ $clase->cantidad_maxima_alumnos == 0 ? 'Clase llena' : 'Disponible' }}
-                        </span> --}}
                     </div>
                 @empty
                     <p class="text-gray-500">No hay clases disponibles para esta fecha.</p>

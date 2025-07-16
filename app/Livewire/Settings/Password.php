@@ -38,6 +38,10 @@ class Password extends Component
 
         $this->reset('current_password', 'password', 'password_confirmation');
 
+        session()->flash('contraseña-actualizada', 'Se actualizo la contraseña correctamente.');
+
         $this->dispatch('password-updated');
+
+        $this->redirect(route('settings.profile'), navigate: true);
     }
 }
