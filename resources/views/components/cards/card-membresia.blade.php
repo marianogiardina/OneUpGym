@@ -74,16 +74,17 @@
     @else
         
         {{-- Creo el formulario para seleccionar la membresia --}}
+        @if(auth()->user()->rol !== App\Enums\RolEnum::PROFESOR)
+            <form action="{{ route('membresia-usuario.store') }}" method="POST">
+                @csrf
+                <input type="hidden" name="membresia_id" value="{{ $membresia->id }}">
+                <button
+                    class="w-full {{$membresia->tipo == 'anual' ? 'bg-gym-accent hover:bg-gym-accent-dark' : 'bg-gym-secondary hover:bg-gym-primary '}} text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
+                    Seleccionar Plan
+                </button>
 
-        <form action="{{ route('membresia-usuario.store') }}" method="POST">
-            @csrf
-            <input type="hidden" name="membresia_id" value="{{ $membresia->id }}">
-            <button
-                class="w-full {{$membresia->tipo == 'anual' ? 'bg-gym-accent hover:bg-gym-accent-dark' : 'bg-gym-secondary hover:bg-gym-primary '}} text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                Seleccionar Plan
-            </button>
-
-        </form>
+            </form>
+        @endif
     @endif
 
     
