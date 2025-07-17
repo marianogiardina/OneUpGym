@@ -74,7 +74,7 @@
     @else
         
         {{-- Creo el formulario para seleccionar la membresia --}}
-        @if(auth()->user()->rol !== App\Enums\RolEnum::PROFESOR)
+        @if( auth()->check() && auth()->user()->rol !== App\Enums\RolEnum::PROFESOR)
             <form action="{{ route('membresia-usuario.store') }}" method="POST">
                 @csrf
                 <input type="hidden" name="membresia_id" value="{{ $membresia->id }}">
